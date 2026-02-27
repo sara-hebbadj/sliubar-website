@@ -3,76 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sliubar — App Development Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Sliubar — Digital Product Studio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-body{
-font-family:Inter;
+
+*{
 margin:0;
-background:#0b0b0c;
-color:white;
+padding:0;
+box-sizing:border-box;
+font-family:Inter;
 }
+
+body{
+background:#050505;
+color:white;
+line-height:1.6;
+}
+
+/* NAV */
 
 nav{
 display:flex;
 justify-content:space-between;
-padding:25px 60px;
+padding:28px 80px;
+position:fixed;
+width:100%;
+background:rgba(5,5,5,.7);
+backdrop-filter:blur(10px);
 }
 
 .logo{
+font-size:20px;
 font-weight:600;
-font-size:22px;
+letter-spacing:1px;
 }
 
+/* HERO */
+
 .hero{
-height:90vh;
+height:100vh;
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
+padding:0 20px;
 }
 
 .hero h1{
-font-size:52px;
-max-width:700px;
+font-size:64px;
+max-width:850px;
+font-weight:500;
 }
 
 .hero p{
-opacity:.7;
-margin-top:15px;
+margin-top:20px;
+opacity:.6;
+font-size:18px;
 }
 
-button{
-margin-top:30px;
-padding:15px 28px;
-border:none;
+.cta{
+margin-top:40px;
+padding:16px 34px;
 background:white;
 color:black;
+border:none;
 font-weight:600;
 cursor:pointer;
+transition:.3s;
 }
 
+.cta:hover{
+transform:translateY(-3px);
+}
+
+/* SECTION */
+
 .section{
-padding:80px 60px;
-max-width:1000px;
+padding:120px 80px;
+max-width:1100px;
 margin:auto;
 }
 
-.card{
-background:#141416;
-padding:25px;
-margin:15px 0;
-border-radius:10px;
+.section h2{
+font-size:36px;
+margin-bottom:40px;
 }
+
+/* SERVICES */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:#0e0e10;
+padding:35px;
+border-radius:14px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+background:#141417;
+}
+
+/* PROCESS */
+
+.process p{
+opacity:.7;
+max-width:700px;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+}
+
+.contact a{
+color:white;
+text-decoration:none;
+font-size:20px;
+}
+
+/* FOOTER */
 
 footer{
 text-align:center;
-padding:40px;
-opacity:.6;
+padding:60px;
+opacity:.5;
 }
+
 </style>
 </head>
 
@@ -80,49 +147,69 @@ opacity:.6;
 
 <nav>
 <div class="logo">SLIUBAR</div>
-<div>App Development Studio</div>
+<div>Digital Product Studio</div>
 </nav>
 
 <section class="hero">
-<h1>We build mobile apps for businesses that want to grow.</h1>
-<p>From idea to App Store — fast, modern, scalable applications.</p>
+<h1>
+We design and build mobile apps that move businesses forward.
+</h1>
+
+<p>
+Strategy. Design. Development. Launch.
+</p>
+
 <a href="mailto:sara@sliubar.com">
-<button>Start Your Project</button>
+<button class="cta">Start a Project</button>
 </a>
 </section>
 
 <section class="section">
 <h2>Services</h2>
 
+<div class="grid">
+
 <div class="card">
-<h3>Business Mobile Apps</h3>
-<p>Custom iOS & Android apps for coaches, startups and companies.</p>
+<h3>Custom Mobile Apps</h3>
+<p>iOS and Android applications tailored for modern businesses and startups.</p>
 </div>
 
 <div class="card">
 <h3>MVP Development</h3>
-<p>Launch your idea quickly with production-ready architecture.</p>
+<p>Launch faster with scalable architecture built for growth.</p>
 </div>
 
 <div class="card">
-<h3>App Modernization</h3>
-<p>Upgrade existing systems into modern mobile experiences.</p>
+<h3>Business Platforms</h3>
+<p>Booking systems, coaching apps and internal business solutions.</p>
 </div>
 
+</div>
 </section>
 
-<section class="section">
+<section class="section process">
 <h2>Our Approach</h2>
+
 <p>
-We focus on speed, clarity and results. Every project is built
-with scalable architecture and business growth in mind.
+We partner with businesses to transform ideas into production-ready digital products.
+Every application is designed with performance, scalability and long-term growth in mind.
 </p>
+
 </section>
 
-<section class="section">
+<section class="section contact">
 <h2>Contact</h2>
-<p>Email: sara@sliubar.com</p>
-<p>Dubai, UAE</p>
+
+<p>
+Dubai, UAE
+</p>
+
+<br>
+
+<a href="mailto:sara@sliubar.com">
+sara@sliubar.com
+</a>
+
 </section>
 
 <footer>
