@@ -3,217 +3,495 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SLIUBAR | Premium Technology Agency</title>
 
-<title>Sliubar — Digital Product Studio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter;
+/* =========================
+   GLOBAL STYLES
+========================= */
+:root {
+    --bg-dark: #0b0f19;
+    --bg-secondary: #111827;
+    --accent: linear-gradient(90deg, #4f46e5, #06b6d4);
+    --text-primary: #ffffff;
+    --text-secondary: #9ca3af;
+    --glass-bg: rgba(255,255,255,0.05);
+    --border-glass: rgba(255,255,255,0.08);
 }
 
-body{
-background:#050505;
-color:white;
-line-height:1.6;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* NAV */
-
-nav{
-display:flex;
-justify-content:space-between;
-padding:28px 80px;
-position:fixed;
-width:100%;
-background:rgba(5,5,5,.7);
-backdrop-filter:blur(10px);
+html {
+    scroll-behavior: smooth;
 }
 
-.logo{
-font-size:20px;
-font-weight:600;
-letter-spacing:1px;
+body {
+    font-family: 'Inter', sans-serif;
+    background: radial-gradient(circle at 20% 20%, #1e293b 0%, #0b0f19 60%);
+    color: var(--text-primary);
+    line-height: 1.6;
 }
 
-/* HERO */
-
-.hero{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:0 20px;
+/* =========================
+   UTILITIES
+========================= */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
 }
 
-.hero h1{
-font-size:64px;
-max-width:850px;
-font-weight:500;
+section {
+    padding: 80px 0;
 }
 
-.hero p{
-margin-top:20px;
-opacity:.6;
-font-size:18px;
+h1, h2, h3 {
+    font-weight: 700;
 }
 
-.cta{
-margin-top:40px;
-padding:16px 34px;
-background:white;
-color:black;
-border:none;
-font-weight:600;
-cursor:pointer;
-transition:.3s;
+p {
+    color: var(--text-secondary);
 }
 
-.cta:hover{
-transform:translateY(-3px);
+.btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+    cursor: pointer;
 }
 
-/* SECTION */
-
-.section{
-padding:120px 80px;
-max-width:1100px;
-margin:auto;
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
 }
 
-.section h2{
-font-size:36px;
-margin-bottom:40px;
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(79,70,229,0.5);
 }
 
-/* SERVICES */
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+.btn-secondary {
+    border: 1px solid var(--border-glass);
+    color: #fff;
 }
 
-.card{
-background:#0e0e10;
-padding:35px;
-border-radius:14px;
-transition:.3s;
+.btn-secondary:hover {
+    background: var(--glass-bg);
 }
 
-.card:hover{
-transform:translateY(-6px);
-background:#141417;
+/* =========================
+   NAVIGATION
+========================= */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    backdrop-filter: blur(12px);
+    background: rgba(11,15,25,0.7);
+    border-bottom: 1px solid var(--border-glass);
+    z-index: 999;
 }
 
-/* PROCESS */
-
-.process p{
-opacity:.7;
-max-width:700px;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
 }
 
-/* CONTACT */
-
-.contact{
-text-align:center;
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
-.contact a{
-color:white;
-text-decoration:none;
-font-size:20px;
+.nav-links {
+    display: flex;
+    gap: 30px;
 }
 
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:60px;
-opacity:.5;
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: 0.3s;
 }
 
+.nav-links a:hover {
+    color: #fff;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    text-align: center;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    background: radial-gradient(circle at 70% 30%, rgba(79,70,229,0.3), transparent 40%);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+   SERVICES
+========================= */
+.services-grid {
+    display: grid;
+    gap: 25px;
+}
+
+.card {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-glass);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #4f46e5;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+}
+
+/* =========================
+   WHY US
+========================= */
+.features {
+    display: grid;
+    gap: 20px;
+}
+
+.feature-item {
+    padding: 20px;
+    border-left: 3px solid #4f46e5;
+}
+
+/* =========================
+   PORTFOLIO
+========================= */
+.portfolio-grid {
+    display: grid;
+    gap: 25px;
+}
+
+.project-card {
+    background: var(--glass-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-glass);
+    transition: 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.03);
+}
+
+.project-img {
+    height: 180px;
+    background: linear-gradient(135deg, #4f46e5, #06b6d4);
+}
+
+.project-content {
+    padding: 20px;
+}
+
+/* =========================
+   PROCESS
+========================= */
+.process-grid {
+    display: grid;
+    gap: 20px;
+    text-align: center;
+}
+
+.step {
+    background: var(--glass-bg);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+/* =========================
+   TESTIMONIALS
+========================= */
+.testimonials {
+    display: grid;
+    gap: 25px;
+}
+
+.testimonial {
+    background: var(--glass-bg);
+    padding: 25px;
+    border-radius: 20px;
+}
+
+/* =========================
+   CTA
+========================= */
+.cta {
+    text-align: center;
+    background: linear-gradient(135deg, #4f46e5, #06b6d4);
+    border-radius: 30px;
+    padding: 60px 20px;
+}
+
+.cta h2 {
+    margin-bottom: 20px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    padding: 40px 0;
+    border-top: 1px solid var(--border-glass);
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media(min-width: 768px) {
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .services-grid,
+    .portfolio-grid,
+    .process-grid,
+    .testimonials,
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .nav-links {
+        display: flex;
+    }
+}
+
+@media(min-width: 1024px) {
+    .services-grid,
+    .portfolio-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .process-grid,
+    .testimonials {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 </style>
 </head>
-
 <body>
 
-<nav>
-<div class="logo">SLIUBAR</div>
-<div>Digital Product Studio</div>
-</nav>
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">SLIUBAR</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#" class="btn btn-primary">Start Your Project</a>
+            </div>
+        </nav>
+    </div>
+</header>
 
 <section class="hero">
-<h1>
-We design and build mobile apps that move businesses forward.
-</h1>
-
-<p>
-Strategy. Design. Development. Launch.
-</p>
-
-<a href="mailto:sara@sliubar.com">
-<button class="cta">Start a Project</button>
-</a>
+    <div class="container">
+        <h1>We Build Powerful Digital Experiences</h1>
+        <p>SLIUBAR is a Dubai-based software agency creating premium mobile apps, AI systems, and digital platforms for ambitious brands worldwide.</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn btn-primary">Start Your Project</a>
+            <a href="#" class="btn btn-secondary">View Portfolio</a>
+        </div>
+    </div>
 </section>
 
-<section class="section">
-<h2>Services</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>Custom Mobile Apps</h3>
-<p>iOS and Android applications tailored for modern businesses and startups.</p>
-</div>
-
-<div class="card">
-<h3>MVP Development</h3>
-<p>Launch faster with scalable architecture built for growth.</p>
-</div>
-
-<div class="card">
-<h3>Business Platforms</h3>
-<p>Booking systems, coaching apps and internal business solutions.</p>
-</div>
-
-</div>
+<section id="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>Mobile App Development</h3>
+                <p>Custom iOS & Android apps designed for performance, scalability, and premium user experience.</p>
+            </div>
+            <div class="card">
+                <h3>Web Platforms</h3>
+                <p>High-performance web platforms engineered for startups, brands, and growing enterprises.</p>
+            </div>
+            <div class="card">
+                <h3>AI Solutions</h3>
+                <p>Intelligent automation, AI assistants, and smart systems built to optimize operations.</p>
+            </div>
+            <div class="card">
+                <h3>Business Automation</h3>
+                <p>Streamline workflows and integrate systems for maximum efficiency and growth.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section class="section process">
-<h2>Our Approach</h2>
-
-<p>
-We partner with businesses to transform ideas into production-ready digital products.
-Every application is designed with performance, scalability and long-term growth in mind.
-</p>
-
+<section id="about">
+    <div class="container">
+        <h2>Why Choose SLIUBAR</h2>
+        <div class="features">
+            <div class="feature-item">
+                <h3>Dubai-Based Innovation</h3>
+                <p>Operating from UAE's fast-growing tech ecosystem.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Fast Delivery</h3>
+                <p>Agile processes ensuring quick turnaround without compromising quality.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Premium Quality</h3>
+                <p>High-end UI/UX and scalable engineering standards.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Global Clients</h3>
+                <p>Serving startups, coaches, and brands internationally.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
-<section class="section contact">
-<h2>Contact</h2>
-
-<p>
-Dubai, UAE
-</p>
-
-<br>
-
-<a href="mailto:sara@sliubar.com">
-sara@sliubar.com
-</a>
-
+<section id="portfolio">
+    <div class="container">
+        <h2>Selected Projects</h2>
+        <div class="portfolio-grid">
+            <div class="project-card">
+                <div class="project-img"></div>
+                <div class="project-content">
+                    <h3>Fintech App</h3>
+                    <p>Secure and scalable financial platform.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"></div>
+                <div class="project-content">
+                    <h3>AI Coach Platform</h3>
+                    <p>Smart coaching automation system.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"></div>
+                <div class="project-content">
+                    <h3>E-Commerce System</h3>
+                    <p>Luxury brand online store platform.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-img"></div>
+                <div class="project-content">
+                    <h3>Corporate Dashboard</h3>
+                    <p>Data-driven business intelligence tool.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
-<footer>
-© 2026 Sliubar
+<section>
+    <div class="container">
+        <h2>Our Process</h2>
+        <div class="process-grid">
+            <div class="step">
+                <h3>Idea</h3>
+                <p>We refine and validate your concept.</p>
+            </div>
+            <div class="step">
+                <h3>Design</h3>
+                <p>Premium UI/UX prototypes and brand alignment.</p>
+            </div>
+            <div class="step">
+                <h3>Development</h3>
+                <p>Scalable and secure engineering execution.</p>
+            </div>
+            <div class="step">
+                <h3>Launch</h3>
+                <p>Deployment, optimization, and growth support.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <h2>Client Testimonials</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"SLIUBAR delivered a world-class mobile app that exceeded our expectations."</p>
+                <strong>- Startup Founder</strong>
+            </div>
+            <div class="testimonial">
+                <p>"Their AI automation transformed our business processes completely."</p>
+                <strong>- Business Consultant</strong>
+            </div>
+            <div class="testimonial">
+                <p>"Premium quality and extremely professional team."</p>
+                <strong>- Luxury Brand Owner</strong>
+            </div>
+            <div class="testimonial">
+                <p>"Fast, reliable, and innovative."</p>
+                <strong>- UAE Entrepreneur</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container">
+    <div class="cta">
+        <h2>Ready to Build Something Extraordinary?</h2>
+        <a href="#" class="btn btn-secondary">Start Your Project</a>
+    </div>
+</section>
+
+<footer id="contact">
+    <div class="container">
+        <p>SLIUBAR | Dubai, UAE</p>
+        <p>Email: contact@sliubar.com</p>
+        <p>© 2026 SLIUBAR. All rights reserved.</p>
+    </div>
 </footer>
 
 </body>
