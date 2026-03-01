@@ -12,61 +12,96 @@
 
 body{
 font-family:Inter;
-background:#F8FAFC;
+background:
+radial-gradient(circle at 20% 20%, rgba(99,102,241,.12), transparent),
+#F8FAFC;
 margin:0;
 color:#0F172A;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
 }
 
-.container{
-max-width:700px;
-margin:auto;
-padding:60px 20px;
-}
-
-h1{text-align:center;}
-p{
-text-align:center;
-color:#64748B;
-margin-bottom:40px;
-}
-
-form{
+/* CARD */
+.card{
+width:520px;
 background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 20px 50px rgba(0,0,0,.05);
+padding:45px;
+border-radius:22px;
+box-shadow:0 30px 80px rgba(0,0,0,.08);
 }
 
-label{
+/* PROGRESS BAR */
+.progress{
+height:6px;
+background:#E2E8F0;
+border-radius:10px;
+margin-bottom:30px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+width:25%;
+background:linear-gradient(90deg,#2563EB,#6366F1);
+transition:.4s;
+}
+
+/* STEPS */
+.step{
+display:none;
+animation:fade .4s ease;
+}
+
+.step.active{
 display:block;
-margin-top:20px;
-font-weight:600;
 }
 
-input,textarea,select{
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+h2{
+margin-bottom:20px;
+}
+
+input,select,textarea{
 width:100%;
 padding:14px;
-margin-top:8px;
+margin-top:15px;
 border-radius:10px;
 border:1px solid #E2E8F0;
 font-size:15px;
 }
 
-button{
+textarea{resize:vertical;}
+
+.buttons{
 margin-top:30px;
-width:100%;
-padding:16px;
+display:flex;
+justify-content:space-between;
+}
+
+button{
+padding:14px 26px;
 border:none;
 border-radius:40px;
+cursor:pointer;
+font-weight:600;
+}
+
+.next{
 background:linear-gradient(90deg,#2563EB,#6366F1);
 color:white;
-font-weight:600;
-cursor:pointer;
+}
+
+.back{
+background:#F1F5F9;
 }
 
 .success{
-margin-top:20px;
-color:green;
 text-align:center;
 display:none;
 }
@@ -85,80 +120,112 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 
 <body>
 
-<div class="container">
+<div class="card">
 
-<h1>Start Your Project</h1>
-<p>Tell us about your idea. We'll review and contact you shortly.</p>
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
 
 <form id="projectForm">
 
-<label>Your Name</label>
-<input type="text" name="name" required>
+<!-- STEP 1 -->
+<div class="step active">
+<h2>About You</h2>
+<input name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
 
-<label>Email</label>
-<input type="email" name="email" required>
+<div class="buttons">
+<button type="button" class="next" onclick="nextStep()">Next</button>
+</div>
+</div>
 
-<label>Phone Number</label>
-<input type="tel" name="phone" required>
+<!-- STEP 2 -->
+<div class="step">
+<h2>Your Project</h2>
+<input name="company" placeholder="Company / Brand">
 
-<label>Company / Brand</label>
-<input type="text" name="company">
-
-<label>Project Type</label>
 <select name="project" required>
+<option value="">Project Type</option>
 <option>Mobile App</option>
 <option>AI System</option>
 <option>Web Platform</option>
 <option>Automation</option>
 </select>
 
-<label>Estimated Budget</label>
+<div class="buttons">
+<button type="button" class="back" onclick="prevStep()">Back</button>
+<button type="button" class="next" onclick="nextStep()">Next</button>
+</div>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+<h2>Budget & Details</h2>
+
 <select name="budget" required>
-<option>Under $5,000</option>
-<option>$5,000 – $15,000</option>
-<option>$15,000 – $50,000</option>
-<option>$50,000+</option>
+<option value="">Estimated Budget</option>
+<option>15,000 – 30,000 AED</option>
+<option>30,000 – 75,000 AED</option>
+<option>75,000 – 150,000 AED</option>
+<option>150,000 – 300,000 AED</option>
+<option>300,000+ AED</option>
+<option>Not sure yet — need guidance</option>
 </select>
 
-<label>Project Description</label>
-<textarea name="message" rows="5" required></textarea>
+<textarea name="message" rows="4"
+placeholder="Describe your project"></textarea>
 
-<button type="submit" id="submitBtn">
-Submit Project Request
-</button>
+<div class="buttons">
+<button type="button" class="back" onclick="prevStep()">Back</button>
+<button type="submit" class="next">Submit</button>
+</div>
+</div>
 
 </form>
 
-<p id="successMessage" class="success">
-✅ Project request sent successfully!
-</p>
+<div class="success" id="successMessage">
+<h2>✓ Request Sent</h2>
+<p>We’ll contact you shortly.</p>
+</div>
 
 </div>
 
 <script>
 
-const form=document.getElementById("projectForm");
-const btn=document.getElementById("submitBtn");
+let currentStep=0;
+const steps=document.querySelectorAll(".step");
+const progress=document.getElementById("progressBar");
 
-form.addEventListener("submit",function(e){
+function showStep(){
+steps.forEach((s,i)=>{
+s.classList.toggle("active",i===currentStep);
+});
+progress.style.width=((currentStep+1)/steps.length*100)+"%";
+}
+
+function nextStep(){
+currentStep++;
+showStep();
+}
+
+function prevStep(){
+currentStep--;
+showStep();
+}
+
+document.getElementById("projectForm")
+.addEventListener("submit",function(e){
 
 e.preventDefault();
-
-btn.disabled=true;
-btn.innerText="Sending...";
 
 emailjs.sendForm(
 "service_bojhf7q",
 "template_mpnzyvl",
 this
-).then(function(){
-
+).then(()=>{
+document.getElementById("projectForm").style.display="none";
 document.getElementById("successMessage").style.display="block";
-form.reset();
-
-btn.disabled=false;
-btn.innerText="Submit Project Request";
-
 });
 
 });
