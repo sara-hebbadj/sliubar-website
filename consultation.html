@@ -157,7 +157,9 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 
 <div class="buttons">
 <button type="button" class="back" onclick="prevStep()">Back</button>
-<button type="submit" class="next">Continue</button>
+<button type="submit" class="next" id="consultSubmit">
+Continue
+</button>
 </div>
 </div>
 
@@ -184,10 +186,27 @@ const steps=document.querySelectorAll(".step");
 const progress=document.getElementById("progressBar");
 
 function showStep(){
-steps.forEach((s,i)=>{
-s.classList.toggle("active",i===currentStep);
+
+steps.forEach((step,i)=>{
+
+step.classList.toggle("active",i===currentStep);
+
+/* MOBILE SAFE INPUT HANDLING */
+const inputs =
+step.querySelectorAll("input, select, textarea");
+
+inputs.forEach(input=>{
+if(i===currentStep){
+input.removeAttribute("disabled");
+}else{
+input.setAttribute("disabled","true");
+}
 });
-progress.style.width=((currentStep+1)/steps.length*100)+"%";
+
+});
+
+progress.style.width =
+((currentStep+1)/steps.length*100)+"%";
 }
 
 function nextStep(){
@@ -213,12 +232,34 @@ emailjs.sendForm(
 this
 ).then(()=>{
 
+document.getElementById("consultForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const btn=document.getElementById("consultSubmit");
+btn.disabled=true;
+btn.innerText="Sending...";
+
+emailjs.sendForm(
+"service_bojhf7q",
+"template_mpnzyvl",
+this
+).then(()=>{
+
 document.getElementById("consultForm").style.display="none";
 
 document.getElementById("calendarSection").style.display="block";
 
 document.getElementById("calendarSection")
 .scrollIntoView({behavior:"smooth"});
+
+}).catch(()=>{
+
+alert("Submission failed. Try again.");
+
+btn.disabled=false;
+btn.innerText="Continue";
 
 });
 
