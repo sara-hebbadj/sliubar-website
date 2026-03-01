@@ -18,7 +18,7 @@ color:#0F172A;
 }
 
 .container{
-max-width:600px;
+max-width:900px;
 margin:auto;
 padding:60px 20px;
 text-align:center;
@@ -29,9 +29,10 @@ background:white;
 padding:40px;
 border-radius:20px;
 box-shadow:0 20px 50px rgba(0,0,0,.05);
+margin-bottom:40px;
 }
 
-input{
+input,select{
 width:100%;
 padding:14px;
 margin-top:15px;
@@ -52,14 +53,22 @@ font-weight:600;
 cursor:pointer;
 }
 
-.success{
-margin-top:20px;
-color:green;
+#calendarSection{
 display:none;
+margin-top:40px;
+}
+
+.calendly-inline-widget{
+min-width:320px;
+height:700px;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 20px 60px rgba(0,0,0,.08);
 }
 
 </style>
 
+<!-- EMAILJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
@@ -74,13 +83,13 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 
 <div class="container">
 
-<div class="card">
-
 <h1>Book a Consultation</h1>
 
-<p style="color:#64748B;">
-Schedule a discussion about your business and technology needs.
+<p>
+Tell us briefly about your project before selecting a meeting time.
 </p>
+
+<div class="card">
 
 <form id="consultForm">
 
@@ -90,62 +99,66 @@ Schedule a discussion about your business and technology needs.
 
 <input type="tel" name="phone" placeholder="Phone Number" required>
 
-<label style="text-align:left;margin-top:20px;">Select Date</label>
-<input type="date" name="date" required>
+<input type="text" name="company" placeholder="Company / Brand">
 
-<label style="text-align:left;">Select Time</label>
-<input type="time" name="time" required>
+<select name="project" required>
+<option value="">Project Type</option>
+<option>Mobile App</option>
+<option>AI System</option>
+<option>Web Platform</option>
+<option>Automation</option>
+</select>
 
-<button type="submit" id="submitBtn">
-Request Consultation
+<button type="submit">
+Continue to Booking →
 </button>
 
 </form>
 
-<p id="successMessage" class="success">
-✅ Consultation request sent!
-</p>
+</div>
 
-<p style="margin-top:20px;">
-or contact directly on  
-<br><br>
-<a href="https://wa.me/971547944719" target="_blank">
-WhatsApp Us
-</a>
-</p>
+<!-- CALENDAR -->
+<div id="calendarSection">
+
+<h2>Select Available Time</h2>
+
+<div
+class="calendly-inline-widget"
+data-url="https://calendly.com/sliubartech/sliubar-consultation">
+</div>
 
 </div>
+
 </div>
 
 <script>
 
-const form=document.getElementById("consultForm");
-const btn=document.getElementById("submitBtn");
-
-form.addEventListener("submit",function(e){
+document.getElementById("consultForm")
+.addEventListener("submit",function(e){
 
 e.preventDefault();
 
-btn.disabled=true;
-btn.innerText="Sending...";
-
+/* send info first */
 emailjs.sendForm(
 "service_bojhf7q",
 "template_mpnzyvl",
 this
 ).then(function(){
 
-document.getElementById("successMessage").style.display="block";
-form.reset();
+/* show calendar */
+document.getElementById("calendarSection").style.display="block";
 
-btn.disabled=false;
-btn.innerText="Request Consultation";
+/* smooth scroll */
+document.getElementById("calendarSection")
+.scrollIntoView({behavior:"smooth"});
 
 });
 
 });
 
 </script>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 </body>
 </html>
