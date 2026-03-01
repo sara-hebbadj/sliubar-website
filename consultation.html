@@ -60,13 +60,12 @@ display:none;
 
 </style>
 
-<!-- EMAILJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-(function(){
+window.onload=function(){
 emailjs.init("7H6amj8MZkwqkpdxf");
-})();
+};
 </script>
 
 </head>
@@ -83,36 +82,28 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 Schedule a discussion about your business and technology needs.
 </p>
 
-<!-- ✅ FORM START -->
 <form id="consultForm">
 
-<input 
-type="text"
-name="name"
-placeholder="Your Name"
-required>
+<input type="text" name="name" placeholder="Your Name" required>
 
-<input 
-type="email"
-name="email"
-placeholder="Email"
-required>
+<input type="email" name="email" placeholder="Email" required>
 
-<input 
-type="text"
-name="time"
-placeholder="Preferred Date & Time"
-required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
 
-<button type="submit">
+<label style="text-align:left;margin-top:20px;">Select Date</label>
+<input type="date" name="date" required>
+
+<label style="text-align:left;">Select Time</label>
+<input type="time" name="time" required>
+
+<button type="submit" id="submitBtn">
 Request Consultation
 </button>
 
 </form>
-<!-- ✅ FORM END -->
 
-<p class="success" id="successMessage">
-✅ Consultation request sent successfully!
+<p id="successMessage" class="success">
+✅ Consultation request sent!
 </p>
 
 <p style="margin-top:20px;">
@@ -124,16 +115,19 @@ WhatsApp Us
 </p>
 
 </div>
-
 </div>
 
-<!-- EMAIL SEND SCRIPT -->
 <script>
 
-document.getElementById("consultForm")
-.addEventListener("submit", function(e){
+const form=document.getElementById("consultForm");
+const btn=document.getElementById("submitBtn");
+
+form.addEventListener("submit",function(e){
 
 e.preventDefault();
+
+btn.disabled=true;
+btn.innerText="Sending...";
 
 emailjs.sendForm(
 "service_bojhf7q",
@@ -142,11 +136,10 @@ this
 ).then(function(){
 
 document.getElementById("successMessage").style.display="block";
-document.getElementById("consultForm").reset();
+form.reset();
 
-}, function(error){
-
-alert("Failed to send request. Please try again.");
+btn.disabled=false;
+btn.innerText="Request Consultation";
 
 });
 
