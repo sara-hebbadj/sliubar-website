@@ -23,11 +23,7 @@ margin:auto;
 padding:60px 20px;
 }
 
-h1{
-text-align:center;
-margin-bottom:10px;
-}
-
+h1{text-align:center;}
 p{
 text-align:center;
 color:#64748B;
@@ -47,17 +43,13 @@ margin-top:20px;
 font-weight:600;
 }
 
-input, textarea, select{
+input,textarea,select{
 width:100%;
 padding:14px;
 margin-top:8px;
 border-radius:10px;
 border:1px solid #E2E8F0;
 font-size:15px;
-}
-
-textarea{
-resize:vertical;
 }
 
 button{
@@ -70,11 +62,6 @@ background:linear-gradient(90deg,#2563EB,#6366F1);
 color:white;
 font-weight:600;
 cursor:pointer;
-transition:.3s;
-}
-
-button:hover{
-opacity:.9;
 }
 
 .success{
@@ -86,11 +73,10 @@ display:none;
 
 </style>
 
-<!-- EMAILJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-window.onload = function(){
+window.onload=function(){
 emailjs.init("7H6amj8MZkwqkpdxf");
 };
 </script>
@@ -112,12 +98,14 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 <label>Email</label>
 <input type="email" name="email" required>
 
+<label>Phone Number</label>
+<input type="tel" name="phone" required>
+
 <label>Company / Brand</label>
 <input type="text" name="company">
 
 <label>Project Type</label>
 <select name="project" required>
-<option value="">Select Project Type</option>
 <option>Mobile App</option>
 <option>AI System</option>
 <option>Web Platform</option>
@@ -126,7 +114,6 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 
 <label>Estimated Budget</label>
 <select name="budget" required>
-<option value="">Select Budget</option>
 <option>Under $5,000</option>
 <option>$5,000 – $15,000</option>
 <option>$15,000 – $50,000</option>
@@ -142,7 +129,7 @@ Submit Project Request
 
 </form>
 
-<p class="success" id="successMessage">
+<p id="successMessage" class="success">
 ✅ Project request sent successfully!
 </p>
 
@@ -150,15 +137,15 @@ Submit Project Request
 
 <script>
 
-const form = document.getElementById("projectForm");
-const button = document.getElementById("submitBtn");
+const form=document.getElementById("projectForm");
+const btn=document.getElementById("submitBtn");
 
-form.addEventListener("submit", function(e){
+form.addEventListener("submit",function(e){
 
 e.preventDefault();
 
-button.disabled = true;
-button.innerText = "Sending...";
+btn.disabled=true;
+btn.innerText="Sending...";
 
 emailjs.sendForm(
 "service_bojhf7q",
@@ -169,15 +156,8 @@ this
 document.getElementById("successMessage").style.display="block";
 form.reset();
 
-button.disabled=false;
-button.innerText="Submit Project Request";
-
-}, function(){
-
-alert("Failed to send. Please try again.");
-
-button.disabled=false;
-button.innerText="Submit Project Request";
+btn.disabled=false;
+btn.innerText="Submit Project Request";
 
 });
 
