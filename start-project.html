@@ -11,28 +11,27 @@
 <style>
 
 body{
-font-family:Inter;
+font-family:'Inter',sans-serif;
 background:
 radial-gradient(circle at 20% 20%, rgba(99,102,241,.12), transparent),
 #F8FAFC;
 margin:0;
-color:#0F172A;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
+min-height:100vh;
+color:#0F172A;
 }
 
-/* CARD */
 .card{
 width:520px;
+max-width:92%;
 background:white;
 padding:45px;
 border-radius:22px;
 box-shadow:0 30px 80px rgba(0,0,0,.08);
 }
 
-/* PROGRESS BAR */
 .progress{
 height:6px;
 background:#E2E8F0;
@@ -43,27 +42,16 @@ overflow:hidden;
 
 .progress-bar{
 height:100%;
-width:25%;
+width:33%;
 background:linear-gradient(90deg,#2563EB,#6366F1);
 transition:.4s;
 }
 
-/* STEPS */
-.step{
-display:none;
-animation:fade .4s ease;
-}
-
-.step.active{
-display:block;
-}
-
-@keyframes fade{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:1;transform:translateY(0)}
-}
+.step{display:none;}
+.step.active{display:block;}
 
 h2{
+font-size:28px;
 margin-bottom:20px;
 }
 
@@ -74,6 +62,7 @@ margin-top:15px;
 border-radius:10px;
 border:1px solid #E2E8F0;
 font-size:15px;
+font-family:Inter;
 }
 
 textarea{resize:vertical;}
@@ -90,6 +79,7 @@ border:none;
 border-radius:40px;
 cursor:pointer;
 font-weight:600;
+font-family:Inter;
 }
 
 .next{
@@ -102,8 +92,8 @@ background:#F1F5F9;
 }
 
 .success{
-text-align:center;
 display:none;
+text-align:center;
 }
 
 </style>
@@ -111,9 +101,7 @@ display:none;
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-window.onload=function(){
-emailjs.init("7H6amj8MZkwqkpdxf");
-};
+window.onload=()=>emailjs.init("7H6amj8MZkwqkpdxf");
 </script>
 
 </head>
@@ -131,6 +119,7 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 <!-- STEP 1 -->
 <div class="step active">
 <h2>About You</h2>
+
 <input name="name" placeholder="Your Name" required>
 <input type="email" name="email" placeholder="Email" required>
 <input type="tel" name="phone" placeholder="Phone Number" required>
@@ -143,6 +132,7 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 <!-- STEP 2 -->
 <div class="step">
 <h2>Your Project</h2>
+
 <input name="company" placeholder="Company / Brand">
 
 <select name="project" required>
@@ -169,8 +159,8 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 <option>30,000 – 75,000 AED</option>
 <option>75,000 – 150,000 AED</option>
 <option>150,000 – 300,000 AED</option>
-<option>Not sure yet — need guidance</option>
 <option>300,000+ AED</option>
+<option>Not sure yet</option>
 </select>
 
 <textarea name="message" rows="4"
@@ -187,7 +177,7 @@ Submit
 </form>
 
 <div class="success" id="successMessage">
-<h2>✅ Request Sent</h2>
+<h2>✓ Request Sent</h2>
 <p>We’ll contact you shortly.</p>
 </div>
 
@@ -200,37 +190,22 @@ const steps=document.querySelectorAll(".step");
 const progress=document.getElementById("progressBar");
 
 function showStep(){
-
 steps.forEach((step,i)=>{
-
 step.classList.toggle("active",i===currentStep);
 
-/* MOBILE FIX */
-const inputs = step.querySelectorAll("input, select, textarea");
-
-inputs.forEach(input=>{
-if(i===currentStep){
-input.removeAttribute("disabled");
-}else{
-input.setAttribute("disabled","true");
-}
+step.querySelectorAll("input,select,textarea")
+.forEach(input=>{
+i===currentStep
+?input.removeAttribute("disabled")
+:input.setAttribute("disabled","true");
 });
-
 });
-
-progress.style.width =
-((currentStep+1)/steps.length*100)+"%";
+progress.style.width=((currentStep+1)/steps.length*100)+"%";
 }
 
-function nextStep(){
-currentStep++;
+function nextStep(){currentStep++;showStep();}
+function prevStep(){currentStep--;showStep();}
 showStep();
-}
-
-function prevStep(){
-currentStep--;
-showStep();
-}
 
 document.getElementById("projectForm")
 .addEventListener("submit",function(e){
@@ -246,14 +221,8 @@ emailjs.sendForm(
 "template_mpnzyvl",
 this
 ).then(()=>{
-
 document.getElementById("projectForm").style.display="none";
 document.getElementById("successMessage").style.display="block";
-
-}).catch(()=>{
-alert("Submission failed. Please try again.");
-btn.disabled=false;
-btn.innerText="Submit";
 });
 
 });
