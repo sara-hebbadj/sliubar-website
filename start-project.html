@@ -6,122 +6,114 @@
 
 <title>Start Your Project | SLIUBAR</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===== BACKGROUND ===== */
 body{
-font-family:'Inter',sans-serif;
+font-family:Inter;
+background:
+radial-gradient(circle at 20% 20%, rgba(99,102,241,.12), transparent),
+#F8FAFC;
 margin:0;
-min-height:100vh;
+color:#0F172A;
 display:flex;
 justify-content:center;
 align-items:center;
-
-background:
-radial-gradient(circle at 20% 20%,rgba(99,102,241,.18),transparent 40%),
-radial-gradient(circle at 80% 10%,rgba(37,99,235,.15),transparent 40%),
-#F8FAFC;
+height:100vh;
 }
 
-/* ===== CARD ===== */
+/* CARD */
 .card{
-width:540px;
-max-width:92%;
-padding:50px;
-border-radius:26px;
-
-background:rgba(255,255,255,.75);
-backdrop-filter:blur(20px);
-
-box-shadow:
-0 40px 100px rgba(15,23,42,.12);
+width:520px;
+background:white;
+padding:45px;
+border-radius:22px;
+box-shadow:0 30px 80px rgba(0,0,0,.08);
 }
 
-/* ===== HEADINGS ===== */
+/* PROGRESS BAR */
+.progress{
+height:6px;
+background:#E2E8F0;
+border-radius:10px;
+margin-bottom:30px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+width:25%;
+background:linear-gradient(90deg,#2563EB,#6366F1);
+transition:.4s;
+}
+
+/* STEPS */
+.step{
+display:none;
+animation:fade .4s ease;
+}
+
+.step.active{
+display:block;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
 h2{
-font-size:30px;
-margin-bottom:10px;
-letter-spacing:-.4px;
+margin-bottom:20px;
 }
 
-.subtitle{
-color:#64748B;
-margin-bottom:25px;
-}
-
-/* ===== INPUTS ===== */
 input,select,textarea{
 width:100%;
-padding:16px;
-margin-top:14px;
-
-border-radius:14px;
+padding:14px;
+margin-top:15px;
+border-radius:10px;
 border:1px solid #E2E8F0;
-
 font-size:15px;
-transition:.3s;
-background:white;
 }
 
-input:focus,
-select:focus,
-textarea:focus{
-outline:none;
-border-color:#6366F1;
-box-shadow:0 0 0 4px rgba(99,102,241,.15);
-}
+textarea{resize:vertical;}
 
-/* ===== STEPS ===== */
-.step{display:none;}
-.step.active{display:block;}
-
-/* ===== BUTTONS ===== */
 .buttons{
-margin-top:35px;
+margin-top:30px;
 display:flex;
 justify-content:space-between;
 }
 
 button{
-padding:14px 28px;
-border-radius:999px;
+padding:14px 26px;
 border:none;
-font-weight:600;
+border-radius:40px;
 cursor:pointer;
-transition:.3s;
+font-weight:600;
 }
 
 .next{
 background:linear-gradient(90deg,#2563EB,#6366F1);
 color:white;
-box-shadow:0 15px 35px rgba(37,99,235,.25);
-}
-
-.next:hover{
-transform:translateY(-2px);
 }
 
 .back{
 background:#F1F5F9;
 }
 
-/* ===== SUCCESS ===== */
 .success{
-display:none;
 text-align:center;
-}
-
-.success h2{
-font-size:32px;
+display:none;
 }
 
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
 <script>
+window.onload=function(){
 emailjs.init("7H6amj8MZkwqkpdxf");
+};
 </script>
 
 </head>
@@ -130,104 +122,108 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 
 <div class="card">
 
+<div class="progress">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
 <form id="projectForm">
 
 <!-- STEP 1 -->
 <div class="step active">
-<h2>Tell us about you</h2>
-<p class="subtitle">Let’s start with basic information.</p>
-
-<input name="name" required placeholder="Full Name">
-<input name="email" required type="email" placeholder="Email Address">
-<input name="phone" required placeholder="Phone Number">
+<h2>About You</h2>
+<input name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Email" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
 
 <div class="buttons">
-<button type="button" class="next" onclick="next()">Continue</button>
+<button type="button" class="next" onclick="nextStep()">Next</button>
 </div>
 </div>
 
 <!-- STEP 2 -->
 <div class="step">
-<h2>Your project</h2>
-<p class="subtitle">What are you looking to build?</p>
-
+<h2>Your Project</h2>
 <input name="company" placeholder="Company / Brand">
 
-<select name="project">
-<option>Mobile Application</option>
+<select name="project" required>
+<option value="">Project Type</option>
+<option>Mobile App</option>
 <option>AI System</option>
-<option>Automation Platform</option>
 <option>Web Platform</option>
+<option>Automation</option>
 </select>
 
 <div class="buttons">
-<button type="button" class="back" onclick="prev()">Back</button>
-<button type="button" class="next" onclick="next()">Continue</button>
+<button type="button" class="back" onclick="prevStep()">Back</button>
+<button type="button" class="next" onclick="nextStep()">Next</button>
 </div>
 </div>
 
 <!-- STEP 3 -->
 <div class="step">
-<h2>Budget & vision</h2>
+<h2>Budget & Details</h2>
 
-<select name="budget">
-<option>15k–30k AED</option>
-<option>30k–75k AED</option>
-<option>75k–150k AED</option>
-<option>150k+ AED</option>
+<select name="budget" required>
+<option value="">Estimated Budget</option>
+<option>Under $5,000</option>
+<option>$5,000 – $15,000</option>
+<option>$15,000 – $50,000</option>
+<option>$50,000+</option>
 </select>
 
 <textarea name="message" rows="4"
-placeholder="Describe your idea..."></textarea>
+placeholder="Describe your project"></textarea>
 
 <div class="buttons">
-<button type="button" class="back" onclick="prev()">Back</button>
-<button type="submit" class="next">Submit Request</button>
+<button type="button" class="back" onclick="prevStep()">Back</button>
+<button type="submit" class="next">Submit</button>
 </div>
 </div>
 
 </form>
 
-<div class="success" id="success">
-<h2>✓ Request Sent</h2>
-<p>SLIUBAR will contact you shortly.</p>
+<div class="success" id="successMessage">
+<h2>✅ Request Sent</h2>
+<p>We’ll contact you shortly.</p>
 </div>
 
 </div>
 
 <script>
 
-let step=0;
+let currentStep=0;
 const steps=document.querySelectorAll(".step");
+const progress=document.getElementById("progressBar");
 
-function show(){
-steps.forEach((s,i)=>s.classList.toggle("active",i===step));
+function showStep(){
+steps.forEach((s,i)=>{
+s.classList.toggle("active",i===currentStep);
+});
+progress.style.width=((currentStep+1)/steps.length*100)+"%";
 }
 
-function next(){step++;show();}
-function prev(){step--;show();}
+function nextStep(){
+currentStep++;
+showStep();
+}
+
+function prevStep(){
+currentStep--;
+showStep();
+}
 
 document.getElementById("projectForm")
-.addEventListener("submit",e=>{
+.addEventListener("submit",function(e){
 
 e.preventDefault();
-const f=e.target;
 
-emailjs.send(
+emailjs.sendForm(
 "service_bojhf7q",
 "template_mpnzyvl",
-{
-name:f.name.value,
-email:f.email.value,
-phone:f.phone.value,
-company:f.company.value,
-project:f.project.value,
-budget:f.budget.value,
-message:f.message.value
-}
+this
 ).then(()=>{
-f.style.display="none";
-document.getElementById("success").style.display="block";
+document.getElementById("projectForm").style.display="none";
+document.getElementById("successMessage").style.display="block";
 });
 
 });
