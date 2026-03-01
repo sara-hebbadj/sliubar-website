@@ -69,6 +69,13 @@ cursor:pointer;
 }
 
 </style>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+emailjs.init("7H6amj8MZkwqkpdxf");
+})();
+</script>
 </head>
 
 <body>
@@ -78,35 +85,25 @@ cursor:pointer;
 <h1>Start Your Project</h1>
 <p>Tell us about your idea. We'll review and contact you shortly.</p>
 
-<form>
+<form id="projectForm">
 
 <label>Your Name</label>
-<input type="text" required>
+<input type="text" name="name" required>
 
 <label>Email</label>
-<input type="email" required>
+<input type="text" name="email" required>
 
 <label>Company / Brand</label>
-<input type="text">
+<input type="text" name="company" required>
 
 <label>Project Type</label>
-<select>
-<option>Mobile App</option>
-<option>AI System</option>
-<option>Web Platform</option>
-<option>Automation</option>
-</select>
+<input type="text" name="project" required>
 
 <label>Estimated Budget</label>
-<select>
-<option>Under $5,000</option>
-<option>$5,000 – $15,000</option>
-<option>$15,000 – $50,000</option>
-<option>$50,000+</option>
-</select>
+<input type="text" name="budget" required>
 
 <label>Project Description</label>
-<textarea rows="5"></textarea>
+<input type="text" name="message" required>
 
 <button type="submit">
 Submit Project Request
@@ -115,6 +112,28 @@ Submit Project Request
 </form>
 
 </div>
+<script>
 
+document.getElementById("projectForm")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+emailjs.sendForm(
+"service_bojhf7q",
+"template_mpnzyvl",
+this
+).then(function(){
+
+alert("Project request sent successfully!");
+document.getElementById("projectForm").reset();
+
+}, function(error){
+alert("Failed to send. Try again.");
+});
+
+});
+
+</script>
 </body>
 </html>
