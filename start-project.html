@@ -56,6 +56,10 @@ border:1px solid #E2E8F0;
 font-size:15px;
 }
 
+textarea{
+resize:vertical;
+}
+
 button{
 margin-top:30px;
 width:100%;
@@ -66,16 +70,31 @@ background:linear-gradient(90deg,#2563EB,#6366F1);
 color:white;
 font-weight:600;
 cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+opacity:.9;
+}
+
+.success{
+margin-top:20px;
+color:green;
+text-align:center;
+display:none;
 }
 
 </style>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-(function(){
+window.onload = function(){
 emailjs.init("7H6amj8MZkwqkpdxf");
-})();
+};
 </script>
+
 </head>
 
 <body>
@@ -91,33 +110,55 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 <input type="text" name="name" required>
 
 <label>Email</label>
-<input type="text" name="email" required>
+<input type="email" name="email" required>
 
 <label>Company / Brand</label>
-<input type="text" name="company" required>
+<input type="text" name="company">
 
 <label>Project Type</label>
-<input type="text" name="project" required>
+<select name="project" required>
+<option value="">Select Project Type</option>
+<option>Mobile App</option>
+<option>AI System</option>
+<option>Web Platform</option>
+<option>Automation</option>
+</select>
 
 <label>Estimated Budget</label>
-<input type="text" name="budget" required>
+<select name="budget" required>
+<option value="">Select Budget</option>
+<option>Under $5,000</option>
+<option>$5,000 – $15,000</option>
+<option>$15,000 – $50,000</option>
+<option>$50,000+</option>
+</select>
 
 <label>Project Description</label>
-<input type="text" name="message" required>
+<textarea name="message" rows="5" required></textarea>
 
-<button type="submit">
+<button type="submit" id="submitBtn">
 Submit Project Request
 </button>
 
 </form>
 
+<p class="success" id="successMessage">
+✅ Project request sent successfully!
+</p>
+
 </div>
+
 <script>
 
-document.getElementById("projectForm")
-.addEventListener("submit", function(e){
+const form = document.getElementById("projectForm");
+const button = document.getElementById("submitBtn");
+
+form.addEventListener("submit", function(e){
 
 e.preventDefault();
+
+button.disabled = true;
+button.innerText = "Sending...";
 
 emailjs.sendForm(
 "service_bojhf7q",
@@ -125,15 +166,24 @@ emailjs.sendForm(
 this
 ).then(function(){
 
-alert("Project request sent successfully!");
-document.getElementById("projectForm").reset();
+document.getElementById("successMessage").style.display="block";
+form.reset();
 
-}, function(error){
-alert("Failed to send. Try again.");
+button.disabled=false;
+button.innerText="Submit Project Request";
+
+}, function(){
+
+alert("Failed to send. Please try again.");
+
+button.disabled=false;
+button.innerText="Submit Project Request";
+
 });
 
 });
 
 </script>
+
 </body>
 </html>
