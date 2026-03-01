@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Start Your Project | SLIUBAR</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Inter;
+background:#F8FAFC;
+margin:0;
+color:#0F172A;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+padding:60px 20px;
+}
+
+h1{
+text-align:center;
+margin-bottom:10px;
+}
+
+p{
+text-align:center;
+color:#64748B;
+margin-bottom:40px;
+}
+
+form{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 20px 50px rgba(0,0,0,.05);
+}
+
+label{
+display:block;
+margin-top:20px;
+font-weight:600;
+}
+
+input, textarea, select{
+width:100%;
+padding:14px;
+margin-top:8px;
+border-radius:10px;
+border:1px solid #E2E8F0;
+font-size:15px;
+}
+
+button{
+margin-top:30px;
+width:100%;
+padding:16px;
+border:none;
+border-radius:40px;
+background:linear-gradient(90deg,#2563EB,#6366F1);
+color:white;
+font-weight:600;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Start Your Project</h1>
+<p>Tell us about your idea. We'll review and contact you shortly.</p>
+
+<form>
+
+<label>Your Name</label>
+<input type="text" required>
+
+<label>Email</label>
+<input type="email" required>
+
+<label>Company / Brand</label>
+<input type="text">
+
+<label>Project Type</label>
+<select>
+<option>Mobile App</option>
+<option>AI System</option>
+<option>Web Platform</option>
+<option>Automation</option>
+</select>
+
+<label>Estimated Budget</label>
+<select>
+<option>Under $5,000</option>
+<option>$5,000 – $15,000</option>
+<option>$15,000 – $50,000</option>
+<option>$50,000+</option>
+</select>
+
+<label>Project Description</label>
+<textarea rows="5"></textarea>
+
+<button type="submit">
+Submit Project Request
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
