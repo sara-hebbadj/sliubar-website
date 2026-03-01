@@ -37,6 +37,7 @@ padding:14px;
 margin-top:15px;
 border-radius:10px;
 border:1px solid #E2E8F0;
+font-size:15px;
 }
 
 button{
@@ -51,7 +52,23 @@ font-weight:600;
 cursor:pointer;
 }
 
+.success{
+margin-top:20px;
+color:green;
+display:none;
+}
+
 </style>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+emailjs.init("7H6amj8MZkwqkpdxf");
+})();
+</script>
+
 </head>
 
 <body>
@@ -66,13 +83,37 @@ cursor:pointer;
 Schedule a discussion about your business and technology needs.
 </p>
 
-<input placeholder="Your Name">
-<input placeholder="Email">
-<input placeholder="Preferred Date & Time">
+<!-- ✅ FORM START -->
+<form id="consultForm">
 
-<button>
+<input 
+type="text"
+name="name"
+placeholder="Your Name"
+required>
+
+<input 
+type="email"
+name="email"
+placeholder="Email"
+required>
+
+<input 
+type="text"
+name="time"
+placeholder="Preferred Date & Time"
+required>
+
+<button type="submit">
 Request Consultation
 </button>
+
+</form>
+<!-- ✅ FORM END -->
+
+<p class="success" id="successMessage">
+✅ Consultation request sent successfully!
+</p>
 
 <p style="margin-top:20px;">
 or contact directly on  
@@ -85,6 +126,33 @@ WhatsApp Us
 </div>
 
 </div>
+
+<!-- EMAIL SEND SCRIPT -->
+<script>
+
+document.getElementById("consultForm")
+.addEventListener("submit", function(e){
+
+e.preventDefault();
+
+emailjs.sendForm(
+"service_bojhf7q",
+"template_mpnzyvl",
+this
+).then(function(){
+
+document.getElementById("successMessage").style.display="block";
+document.getElementById("consultForm").reset();
+
+}, function(error){
+
+alert("Failed to send request. Please try again.");
+
+});
+
+});
+
+</script>
 
 </body>
 </html>
