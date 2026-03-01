@@ -216,16 +216,44 @@ const btn=document.getElementById("submitBtn");
 btn.disabled=true;
 btn.innerText="Sending...";
 
-emailjs.sendForm(
+<script>
+
+document.getElementById("projectForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const btn=document.getElementById("submitBtn");
+btn.disabled=true;
+btn.innerText="Sending...";
+
+const formData={
+name:this.name.value,
+email:this.email.value,
+phone:this.phone.value,
+company:this.company.value,
+project:this.project.value,
+budget:this.budget.value,
+message:this.message.value
+};
+
+emailjs.send(
 "service_bojhf7q",
 "template_mpnzyvl",
-this
+formData
 ).then(()=>{
+
 document.getElementById("projectForm").style.display="none";
 document.getElementById("successMessage").style.display="block";
+
+}).catch(()=>{
+alert("Failed to send");
+btn.disabled=false;
+btn.innerText="Submit";
 });
 
 });
+
 
 </script>
 
