@@ -247,23 +247,40 @@ emailjs.sendForm(
 this
 ).then(()=>{
 
-document.getElementById("consultForm").style.display="none";
+document.getElementById("consultForm")
+.addEventListener("submit",function(e){
 
+e.preventDefault();
+
+const btn=document.getElementById("consultSubmit");
+btn.disabled=true;
+btn.innerText="Sending...";
+
+const formData={
+name:this.name.value,
+email:this.email.value,
+phone:this.phone.value,
+company:this.company.value,
+project:this.project.value
+};
+
+emailjs.send(
+"service_bojhf7q",
+"template_mpnzyvl",
+formData
+).then(()=>{
+
+document.getElementById("consultForm").style.display="none";
 document.getElementById("calendarSection").style.display="block";
 
-document.getElementById("calendarSection")
-.scrollIntoView({behavior:"smooth"});
-
 }).catch(()=>{
-
-alert("Submission failed. Try again.");
-
+alert("Submission failed");
 btn.disabled=false;
 btn.innerText="Continue";
-
 });
 
 });
+  showStep();
 
 </script>
 
