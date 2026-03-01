@@ -178,7 +178,9 @@ placeholder="Describe your project"></textarea>
 
 <div class="buttons">
 <button type="button" class="back" onclick="prevStep()">Back</button>
-<button type="submit" class="next">Submit</button>
+<button type="submit" class="next" id="submitBtn">
+Submit
+</button>
 </div>
 </div>
 
@@ -198,10 +200,26 @@ const steps=document.querySelectorAll(".step");
 const progress=document.getElementById("progressBar");
 
 function showStep(){
-steps.forEach((s,i)=>{
-s.classList.toggle("active",i===currentStep);
+
+steps.forEach((step,i)=>{
+
+step.classList.toggle("active",i===currentStep);
+
+/* MOBILE FIX */
+const inputs = step.querySelectorAll("input, select, textarea");
+
+inputs.forEach(input=>{
+if(i===currentStep){
+input.removeAttribute("disabled");
+}else{
+input.setAttribute("disabled","true");
+}
 });
-progress.style.width=((currentStep+1)/steps.length*100)+"%";
+
+});
+
+progress.style.width =
+((currentStep+1)/steps.length*100)+"%";
 }
 
 function nextStep(){
@@ -219,13 +237,23 @@ document.getElementById("projectForm")
 
 e.preventDefault();
 
+const btn=document.getElementById("submitBtn");
+btn.disabled=true;
+btn.innerText="Sending...";
+
 emailjs.sendForm(
 "service_bojhf7q",
 "template_mpnzyvl",
 this
 ).then(()=>{
+
 document.getElementById("projectForm").style.display="none";
 document.getElementById("successMessage").style.display="block";
+
+}).catch(()=>{
+alert("Submission failed. Please try again.");
+btn.disabled=false;
+btn.innerText="Submit";
 });
 
 });
