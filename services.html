@@ -8,13 +8,13 @@
 <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 
-<title>SLIUBAR | Technology Built to Scale Businesses</title>
+<title>SLIUBAR Services | Technology Built to Scale Businesses</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* SAME CSS AS YOUR ORIGINAL — NO CHANGES */
+/* ================= ROOT ================= */
 
 :root{
 --bg:#F8FAFC;
@@ -28,12 +28,9 @@
 
 *{margin:0;padding:0;box-sizing:border-box;}
 
-html{scroll-behavior:smooth;}
-
 body{
 font-family:'Inter',sans-serif;
 color:var(--text);
-line-height:1.6;
 background:
 radial-gradient(circle at 10% 20%, rgba(99,102,241,0.15), transparent 40%),
 radial-gradient(circle at 90% 30%, rgba(37,99,235,0.12), transparent 40%),
@@ -46,11 +43,23 @@ max-width:1200px;
 margin:auto;
 }
 
-section{padding:110px 0;}
+section{
+padding:110px 0;
+}
 
-h1,h2,h3{font-weight:700;}
-p{color:var(--muted);}
-a{text-decoration:none;color:inherit;}
+h1,h2,h3{
+font-weight:700;
+}
+
+p{
+color:var(--muted);
+}
+
+a{
+text-decoration:none;
+}
+
+/* ================= NAV ================= */
 
 header{
 position:sticky;
@@ -78,74 +87,97 @@ display:none;
 gap:30px;
 }
 
-.btn{
-padding:14px 28px;
-border-radius:50px;
-font-weight:600;
-transition:.3s;
-display:inline-block;
-}
-
-.btn-primary{
-background:linear-gradient(90deg,#2563EB,#6366F1);
-color:white;
-box-shadow:0 10px 25px rgba(37,99,235,.25);
-}
-
-.btn-secondary{
-background:white;
-border:1px solid var(--border);
-}
+/* ================= HERO ================= */
 
 .hero{
 text-align:center;
 padding-top:160px;
-position:relative;
-overflow:hidden;
-}
-
-.gradient-text{
-background:linear-gradient(90deg,#2563EB,#6366F1);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
 }
 
 .hero h1{
-font-size:4rem;
-max-width:850px;
-margin:auto;
-margin-bottom:25px;
+font-size:3.8rem;
+margin-bottom:20px;
 }
 
 .hero p{
 max-width:650px;
 margin:auto;
-margin-bottom:40px;
 }
 
-.hero-buttons{
-display:flex;
-justify-content:center;
-gap:15px;
-flex-wrap:wrap;
+/* ================= SERVICES LAYOUT ================= */
+
+.section{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+align-items:center;
 }
 
-.trust{
-background:white;
-border-top:1px solid var(--border);
-border-bottom:1px solid var(--border);
-text-align:center;
-padding:30px;
+.section:nth-child(even){
+background:var(--surface);
 }
 
-.grid{display:grid;gap:25px;}
+.features{
+margin-top:15px;
+}
 
-.card{
-background:white;
+.features li{
+margin-bottom:8px;
+color:var(--text);
+}
+
+.meta{
+margin-top:20px;
+font-size:14px;
+color:var(--muted);
+}
+
+.price{
+margin-top:5px;
+font-weight:600;
+color:var(--primary);
+}
+
+/* ================= BUTTON ================= */
+
+.btn{
+margin-top:20px;
+padding:14px 28px;
+border-radius:50px;
+background:linear-gradient(90deg,#2563EB,#6366F1);
+color:white;
+display:inline-block;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 30px rgba(99,102,241,.35);
+}
+
+/* ================= IMAGE BLOCK ================= */
+
+.visual{
+height:260px;
+background:linear-gradient(135deg,#EEF2FF,#F8FAFC);
+border-radius:20px;
 border:1px solid var(--border);
-padding:35px;
-border-radius:18px;
 }
+
+/* ================= FINAL CTA ================= */
+
+.final{
+text-align:center;
+padding:120px 20px;
+}
+
+.final h2{
+font-size:2.2rem;
+margin-bottom:20px;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
 text-align:center;
@@ -153,9 +185,36 @@ padding:60px 0;
 border-top:1px solid var(--border);
 }
 
+/* ================= APPLE SCROLL ANIMATION ================= */
+
+.reveal{
+opacity:0;
+transform:translateY(60px);
+transition:all 1s cubic-bezier(.22,1,.36,1);
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* ================= MOBILE ================= */
+
 @media(min-width:768px){
 .nav-links{display:flex;}
-.grid.services{grid-template-columns:repeat(4,1fr);}
+}
+
+@media(max-width:900px){
+
+.section{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+.hero h1{
+font-size:2.5rem;
+}
+
 }
 
 </style>
@@ -170,42 +229,51 @@ border-top:1px solid var(--border);
 <div class="logo">SLIUBAR</div>
 
 <div class="nav-links">
+<a href="index.html">Home</a>
 <a href="services.html">Services</a>
-<a href="#process">Approach</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
+<a href="#">About</a>
+<a href="#">Contact</a>
 </div>
 
 </nav>
 </div>
 </header>
 
-<section class="hero">
+<section class="hero reveal">
 
 <h1>Custom Software & AI Solutions</h1>
 
 <p>
-We design and build scalable websites, AI systems and business software.
+We design and build high-performance websites, AI automation systems, and scalable software platforms.
 </p>
 
 </section>
 
 <div class="container">
 
-<section class="section">
+<!-- WEBSITE -->
+
+<section class="section reveal">
 
 <div>
+
 <h2>Custom Business Websites</h2>
 
+<p>Professional websites designed to represent your brand and convert visitors into customers.</p>
+
 <ul class="features">
-<li>Custom website design</li>
-<li>Responsive mobile layout</li>
-<li>Lead capture forms</li>
-<li>WhatsApp integration</li>
-<li>SEO setup</li>
+<li>Custom website design (no templates)</li>
+<li>Fully responsive mobile and desktop layout</li>
+<li>5–10 pages depending on business needs</li>
+<li>Contact forms and lead capture</li>
+<li>WhatsApp and Google Maps integration</li>
+<li>Basic SEO setup</li>
+<li>Website performance optimization</li>
+<li>Deployment and hosting guidance</li>
 </ul>
 
-<p class="price">Starting from 8,000 AED</p>
+<div class="meta">Timeline: 2–3 weeks</div>
+<div class="price">Starting from 8,000 AED</div>
 
 <a class="btn" href="start-project.html">Start Project</a>
 
@@ -215,22 +283,30 @@ We design and build scalable websites, AI systems and business software.
 
 </section>
 
+<!-- BOOKING -->
 
-<section class="section">
+<section class="section reveal">
 
 <div class="visual"></div>
 
 <div>
+
 <h2>Online Booking Systems</h2>
 
+<p>Custom booking platforms for businesses managing appointments, classes, or services.</p>
+
 <ul class="features">
-<li>Appointment scheduling</li>
+<li>Online appointment scheduling</li>
+<li>Customer account registration</li>
 <li>Admin dashboard</li>
 <li>Calendar management</li>
-<li>Email notifications</li>
+<li>Email confirmation notifications</li>
+<li>Reporting dashboard</li>
+<li>Secure database storage</li>
 </ul>
 
-<p class="price">Starting from 15,000 AED</p>
+<div class="meta">Timeline: 4–6 weeks</div>
+<div class="price">Starting from 15,000 AED</div>
 
 <a class="btn" href="start-project.html">Start Project</a>
 
@@ -238,20 +314,86 @@ We design and build scalable websites, AI systems and business software.
 
 </section>
 
+<!-- AI CHATBOT -->
 
-<section class="section">
+<section class="section reveal">
 
 <div>
-<h2>AI Chatbots</h2>
+
+<h2>AI Chatbots for Businesses</h2>
+
+<p>AI-powered assistants that answer customer questions and capture leads automatically.</p>
 
 <ul class="features">
 <li>AI chatbot integration</li>
-<li>Lead capture automation</li>
-<li>FAQ training</li>
+<li>Training with your business FAQs</li>
+<li>Lead capture functionality</li>
 <li>Conversation analytics</li>
+<li>Custom chatbot interface</li>
+<li>Website integration</li>
 </ul>
 
-<p class="price">Starting from 7,000 AED</p>
+<div class="meta">Timeline: 2–3 weeks</div>
+<div class="price">Starting from 7,000 AED</div>
+
+<a class="btn" href="start-project.html">Start Project</a>
+
+</div>
+
+<div class="visual"></div>
+
+</section>
+
+<!-- DASHBOARDS -->
+
+<section class="section reveal">
+
+<div class="visual"></div>
+
+<div>
+
+<h2>Business Dashboards & Internal Systems</h2>
+
+<p>Custom software tools that help businesses track data, manage operations, and automate processes.</p>
+
+<ul class="features">
+<li>Secure admin login system</li>
+<li>Custom dashboards and data visualization</li>
+<li>Database integration</li>
+<li>Reports export (CSV / PDF)</li>
+<li>Workflow automation</li>
+<li>Performance analytics</li>
+</ul>
+
+<div class="meta">Timeline: 4–5 weeks</div>
+<div class="price">Starting from 12,000 AED</div>
+
+<a class="btn" href="start-project.html">Start Project</a>
+
+</div>
+
+</section>
+
+<!-- MOBILE -->
+
+<section class="section reveal">
+
+<div>
+
+<h2>Mobile App Development</h2>
+
+<p>Cross-platform mobile applications for startups and digital products.</p>
+
+<ul class="features">
+<li>Cross-platform mobile app (.NET MAUI)</li>
+<li>User authentication</li>
+<li>Backend API integration</li>
+<li>Basic dashboard features</li>
+<li>Deployment guidance</li>
+</ul>
+
+<div class="meta">Timeline: 6–10 weeks</div>
+<div class="price">Starting from 25,000 AED</div>
 
 <a class="btn" href="start-project.html">Start Project</a>
 
@@ -263,9 +405,11 @@ We design and build scalable websites, AI systems and business software.
 
 </div>
 
-<section class="final">
+<section class="final reveal">
 
 <h2>Let’s Build Something Exceptional</h2>
+
+<p>Tell us about your project and we’ll recommend the best solution.</p>
 
 <a href="start-project.html" class="btn">Start Your Project</a>
 
@@ -276,6 +420,31 @@ We design and build scalable websites, AI systems and business software.
 <p>© SLIUBAR</p>
 
 </footer>
+
+<script>
+
+const reveals=document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+
+const windowHeight=window.innerHeight;
+
+reveals.forEach(el=>{
+
+const top=el.getBoundingClientRect().top;
+
+if(top<windowHeight-80){
+el.classList.add("active");
+}
+
+});
+
+}
+
+window.addEventListener("scroll",revealOnScroll);
+revealOnScroll();
+
+</script>
 
 </body>
 </html>
