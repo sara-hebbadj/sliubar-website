@@ -6,8 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
 
 <title>SLIUBAR | Technology Built to Scale Businesses</title>
 
@@ -40,7 +38,6 @@ scroll-behavior:smooth;
 body{
 font-family:'Inter',sans-serif;
 color:var(--text);
-line-height:1.6;
 background:
 radial-gradient(circle at 10% 20%, rgba(99,102,241,0.15), transparent 40%),
 radial-gradient(circle at 90% 30%, rgba(37,99,235,0.12), transparent 40%),
@@ -59,7 +56,6 @@ padding:100px 0;
 
 h1,h2,h3{
 font-weight:700;
-letter-spacing:-0.3px;
 }
 
 p{
@@ -92,21 +88,18 @@ padding:20px 0;
 .logo{
 font-weight:800;
 letter-spacing:4px;
-font-size:18px;
 }
 
-/* NAV LINKS */
+/* ================= NAV ================= */
 
 .nav-links{
 display:flex;
 gap:25px;
-flex-wrap:wrap;
 }
 
 .nav-links a{
 font-size:14px;
 color:var(--muted);
-font-weight:500;
 }
 
 .nav-links a:hover{
@@ -119,8 +112,8 @@ color:var(--text);
 padding:14px 28px;
 border-radius:50px;
 font-weight:600;
-transition:.3s;
 display:inline-block;
+transition:.3s;
 }
 
 .btn-primary{
@@ -186,6 +179,22 @@ gap:15px;
 flex-wrap:wrap;
 }
 
+/* HERO PRODUCT VISUAL */
+
+.hero-product{
+margin-top:70px;
+display:flex;
+justify-content:center;
+}
+
+.hero-product img{
+width:100%;
+max-width:900px;
+border-radius:20px;
+box-shadow:0 40px 80px rgba(15,23,42,.15);
+border:1px solid var(--border);
+}
+
 /* ================= TRUST ================= */
 
 .trust{
@@ -215,7 +224,7 @@ background:white;
 border:1px solid var(--border);
 padding:35px;
 border-radius:18px;
-transition:.4s;
+transition:.3s;
 }
 
 .card:hover{
@@ -265,20 +274,7 @@ display:inline-block;
 margin-top:20px;
 }
 
-/* ================= SCROLL ANIMATION ================= */
-
-.reveal{
-opacity:0;
-transform:translateY(60px);
-transition:all 1s cubic-bezier(.22,1,.36,1);
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-/* ================= DESKTOP GRID ================= */
+/* ================= GRID ================= */
 
 @media(min-width:768px){
 
@@ -316,8 +312,6 @@ section{
 padding:70px 0;
 }
 
-/* NAV */
-
 nav{
 flex-direction:column;
 align-items:flex-start;
@@ -325,17 +319,8 @@ gap:12px;
 }
 
 .nav-links{
-width:100%;
 overflow-x:auto;
-gap:18px;
 }
-
-.nav-links a{
-white-space:nowrap;
-font-size:14px;
-}
-
-/* HERO */
 
 .hero{
 padding-top:100px;
@@ -343,48 +328,14 @@ padding-top:100px;
 
 .hero h1{
 font-size:2.2rem;
-line-height:1.25;
 }
 
 .hero p{
 font-size:15px;
-padding:0 10px;
 }
 
-.hero-buttons{
-flex-direction:column;
-align-items:center;
-}
-
-.btn{
-width:100%;
-max-width:260px;
-text-align:center;
-}
-
-/* CARDS */
-
-.grid.services{
-grid-template-columns:1fr;
-}
-
-.grid.process{
-grid-template-columns:1fr;
-}
-
-.card{
-padding:25px;
-}
-
-.step{
-padding:25px;
-}
-
-/* CTA */
-
-.cta{
-padding:60px 20px;
-border-radius:20px;
+.hero-product img{
+max-width:100%;
 }
 
 }
@@ -396,6 +347,7 @@ border-radius:20px;
 
 <header>
 <div class="container">
+
 <nav>
 
 <div class="logo">SLIUBAR</div>
@@ -408,6 +360,7 @@ border-radius:20px;
 </div>
 
 </nav>
+
 </div>
 </header>
 
@@ -417,17 +370,15 @@ border-radius:20px;
 
 <div class="container">
 
-<h1 class="gradient-text reveal">
+<h1 class="gradient-text">
 We Engineer the Technology Modern Businesses Depend On.
 </h1>
 
-<p class="reveal">
-SLIUBAR partners with founders and organizations to design scalable
-platforms, AI systems, and digital infrastructure built for growth
-and long-term success.
+<p>
+Custom software, AI systems, and digital platforms designed to help businesses grow faster, automate operations, and scale with confidence.
 </p>
 
-<div class="hero-buttons reveal">
+<div class="hero-buttons">
 
 <a href="start-project.html" class="btn btn-primary">
 Start Your Project
@@ -439,74 +390,82 @@ View Services
 
 </div>
 
+<div class="hero-product">
+
+<img src="images/hero-product.png" alt="SLIUBAR platform interface">
+
 </div>
+
+</div>
+
 </section>
 
-<section class="trust reveal">
+<section class="trust">
 Trusted by founders, startups, and growing businesses across UAE & globally.
 </section>
 
-<section id="services" class="section-alt">
+<section class="section-alt">
 
 <div class="container">
 
-<h2 class="reveal" style="text-align:center;margin-bottom:60px;">
+<h2 style="text-align:center;margin-bottom:60px;">
 What We Build
 </h2>
 
 <div class="grid services">
 
-<div class="card reveal">
-<h3>Mobile Platforms</h3>
-<p>High-performance applications engineered for scalability.</p>
+<div class="card">
+<h3>Custom Business Websites</h3>
+<p>Professional websites designed to represent your brand and convert visitors into customers.</p>
 </div>
 
-<div class="card reveal">
-<h3>AI Systems</h3>
-<p>Automation and intelligence solutions optimizing operations.</p>
+<div class="card">
+<h3>Online Booking Systems</h3>
+<p>Custom platforms for managing appointments, classes, and service scheduling.</p>
 </div>
 
-<div class="card reveal">
-<h3>Web Infrastructure</h3>
-<p>Secure digital platforms supporting modern businesses.</p>
+<div class="card">
+<h3>AI Chatbots for Businesses</h3>
+<p>AI assistants that answer customer questions and capture leads automatically.</p>
 </div>
 
-<div class="card reveal">
-<h3>Business Automation</h3>
-<p>Custom systems eliminating manual workflows.</p>
-</div>
-
+<div class="card">
+<h3>Business Dashboards & Internal Systems</h3>
+<p>Custom software tools that help companies manage operations and analyze data.</p>
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 <section id="process">
 
 <div class="container">
 
-<h2 class="reveal" style="text-align:center;margin-bottom:60px;">
+<h2 style="text-align:center;margin-bottom:60px;">
 Our Proven Approach
 </h2>
 
 <div class="grid process">
 
-<div class="step reveal">
+<div class="step">
 <h3>Strategy</h3>
 <p>Business goals translated into technical architecture.</p>
 </div>
 
-<div class="step reveal">
+<div class="step">
 <h3>Design</h3>
 <p>Premium user experiences aligned with brand identity.</p>
 </div>
 
-<div class="step reveal">
+<div class="step">
 <h3>Engineering</h3>
 <p>Clean scalable systems built for reliability.</p>
 </div>
 
-<div class="step reveal">
+<div class="step">
 <h3>Growth</h3>
 <p>Deployment and continuous optimization.</p>
 </div>
@@ -514,20 +473,19 @@ Our Proven Approach
 </div>
 
 </div>
+
 </section>
 
 <section id="about" class="section-alt">
 
-<div class="container reveal" style="text-align:center;max-width:750px;">
+<div class="container" style="text-align:center;max-width:750px;">
 
 <h2 style="margin-bottom:20px;">
 Why Companies Work With SLIUBAR
 </h2>
 
 <p>
-Based in Dubai, SLIUBAR partners with ambitious organizations
-to design and engineer digital products that drive measurable
-business growth through strategy, design, and technology.
+Based in Dubai, SLIUBAR partners with ambitious organizations to design and engineer digital products that drive measurable business growth through strategy, design, and technology.
 </p>
 
 </div>
@@ -536,7 +494,7 @@ business growth through strategy, design, and technology.
 
 <section class="container">
 
-<div class="cta reveal">
+<div class="cta">
 
 <h2 style="margin-bottom:25px;">
 Ready to Build Technology That Scales With Your Business?
@@ -569,31 +527,6 @@ Contact on WhatsApp
 
 </footer>
 
-<script>
-
-const reveals=document.querySelectorAll(".reveal");
-
-function revealOnScroll(){
-
-const h=window.innerHeight;
-
-reveals.forEach(el=>{
-
-if(el.getBoundingClientRect().top<h-80){
-
-el.classList.add("active");
-
-}
-
-});
-
-}
-
-window.addEventListener("scroll",revealOnScroll);
-
-revealOnScroll();
-
-</script>
-
 </body>
 </html>
+
