@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sliubar AI Assistant</title>
+
+<style>
+
+body{
+font-family: Inter, sans-serif;
+background:#F8FAFC;
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.chat-container{
+width:420px;
+height:600px;
+background:white;
+border-radius:14px;
+box-shadow:0 20px 60px rgba(0,0,0,0.08);
+display:flex;
+flex-direction:column;
+overflow:hidden;
+}
+
+.chat-header{
+padding:16px;
+font-weight:600;
+border-bottom:1px solid #eee;
+}
+
+.chat-messages{
+flex:1;
+padding:16px;
+overflow-y:auto;
+}
+
+.message{
+margin-bottom:12px;
+}
+
+.user{
+text-align:right;
+}
+
+.user span{
+background:#2563EB;
+color:white;
+padding:10px 14px;
+border-radius:10px;
+display:inline-block;
+}
+
+.bot span{
+background:#F1F5F9;
+padding:10px 14px;
+border-radius:10px;
+display:inline-block;
+}
+
+.chat-input{
+display:flex;
+border-top:1px solid #eee;
+}
+
+.chat-input input{
+flex:1;
+padding:14px;
+border:none;
+outline:none;
+font-size:14px;
+}
+
+.chat-input button{
+background:#2563EB;
+border:none;
+color:white;
+padding:0 20px;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="chat-container">
+
+<div class="chat-header">
+Sliubar AI Assistant
+</div>
+
+<div class="chat-messages" id="messages"></div>
+
+<div class="chat-input">
+
+<input id="input" placeholder="Ask about our services...">
+
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+</div>
+
+<script>
+
+async function sendMessage(){
+
+const input = document.getElementById("input")
+const text = input.value
+
+if(!text) return
+
+addMessage(text,"user")
+
+input.value=""
+
+const response = await fetch("/api/chat",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({message:text})
+})
+
+const data = await response.json()
+
+addMessage(data.reply,"bot")
+
+}
+
+function addMessage(text,type){
+
+const container=document.getElementById("messages")
+
+const div=document.createElement("div")
+
+div.className="message "+type
+
+div.innerHTML="<span>"+text+"</span>"
+
+container.appendChild(div)
+
+container.scrollTop=container.scrollHeight
+
+}
+
+</script>
+
+</body>
+</html>
