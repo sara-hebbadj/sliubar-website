@@ -103,7 +103,23 @@ color:var(--text);
 
 .hero{
 text-align:center;
-padding-top:140px;
+padding:160px 0 120px 0;
+background:linear-gradient(135deg,#2563EB 0%,#6366F1 100%);
+color:white;
+position:relative;
+overflow:hidden;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle,rgba(255,255,255,0.15),transparent);
+top:-200px;
+left:50%;
+transform:translateX(-50%);
+filter:blur(80px);
 }
 
 .hero h1{
@@ -115,6 +131,7 @@ margin-bottom:20px;
 max-width:650px;
 margin:auto;
 font-size:18px;
+color:rgba(255,255,255,0.85);
 }
 
 /* ================= PORTFOLIO ================= */
@@ -131,6 +148,7 @@ border-radius:20px;
 border:1px solid var(--border);
 overflow:hidden;
 transition:.35s;
+display:block;
 }
 
 .project:hover{
@@ -231,8 +249,6 @@ A selection of platforms, websites, and software systems engineered by SLIUBAR.
 
 <h3>Gym Booking Platform</h3>
 
-
-
 <span class="project-link">View Live Demo →</span>
 
 </div>
@@ -249,7 +265,6 @@ A selection of platforms, websites, and software systems engineered by SLIUBAR.
 
 <h3>Café Website</h3>
 
-
 <span class="project-link">View Live Demo →</span>
 
 </div>
@@ -260,32 +275,29 @@ A selection of platforms, websites, and software systems engineered by SLIUBAR.
 
 <a href="https://sliubar-website.vercel.app/ai-chatbot.html" target="_blank" class="project">
 
-<img src="ai-project.png">
+<img src="chatbot.png" alt="AI chatbot">
 
 <div class="project-content">
 
 <h3>AI Customer Assistant</h3>
 
-
 <span class="project-link">View Live Demo →</span>
 
 </div>
 
-</div>
+</a>
 
 <!-- REAL ESTATE DASHBOARD -->
 
 <div class="project">
 
-<img src="realestate-project.png">
+<img src="realestate-project.png" alt="Real estate dashboard">
 
 <div class="project-content">
 
 <h3>Real Estate Analytics Dashboard</h3>
 
-
-
-<span class="project-link">Coming Soon</span>
+<span class="project-link">View Live Demo →</span>
 
 </div>
 
