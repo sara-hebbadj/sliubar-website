@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<link rel="apple-touch-icon" href="favicon.png">
 
 <title>Selected Work | SLIUBAR</title>
 
@@ -32,11 +31,17 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family:'Inter',sans-serif;
-background:var(--bg);
 color:var(--text);
-line-height:1.6;
+background:
+radial-gradient(circle at 10% 20%, rgba(99,102,241,0.15), transparent 40%),
+radial-gradient(circle at 90% 30%, rgba(37,99,235,0.12), transparent 40%),
+var(--bg);
 }
 
 .container{
@@ -103,27 +108,30 @@ color:var(--text);
 
 .hero{
 text-align:center;
-padding:160px 0 120px 0;
-background:linear-gradient(135deg,#2563EB 0%,#6366F1 100%);
-color:white;
+padding-top:140px;
 position:relative;
 overflow:hidden;
 }
 
-.hero::after{
-content:"";
+.hero-glow{
 position:absolute;
-width:600px;
-height:600px;
-background:radial-gradient(circle,rgba(255,255,255,0.15),transparent);
+width:650px;
+height:650px;
+background:radial-gradient(circle,rgba(99,102,241,.25),transparent 70%);
 top:-200px;
 left:50%;
 transform:translateX(-50%);
-filter:blur(80px);
+z-index:-1;
+}
+
+.gradient-text{
+background:linear-gradient(90deg,#2563EB,#6366F1);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .hero h1{
-font-size:3.5rem;
+font-size:3.8rem;
 margin-bottom:20px;
 }
 
@@ -131,7 +139,6 @@ margin-bottom:20px;
 max-width:650px;
 margin:auto;
 font-size:18px;
-color:rgba(255,255,255,0.85);
 }
 
 /* ================= PORTFOLIO ================= */
@@ -139,7 +146,7 @@ color:rgba(255,255,255,0.85);
 .portfolio{
 margin-top:80px;
 display:grid;
-gap:50px;
+gap:40px;
 }
 
 .project{
@@ -152,29 +159,25 @@ display:block;
 }
 
 .project:hover{
-transform:translateY(-6px);
-box-shadow:0 25px 50px rgba(15,23,42,.08);
+transform:translateY(-8px);
+box-shadow:0 30px 60px rgba(15,23,42,.08);
 }
-
-/* PROJECT IMAGE */
 
 .project img{
 width:100%;
 display:block;
 }
 
-/* PROJECT INFO */
-
 .project-content{
-padding:30px;
+padding:28px;
 }
 
 .project-content h3{
-margin-bottom:10px;
+margin-bottom:8px;
 }
 
 .project-link{
-margin-top:15px;
+margin-top:10px;
 display:inline-block;
 color:var(--primary);
 font-weight:600;
@@ -194,12 +197,18 @@ grid-template-columns:1fr 1fr;
 
 @media(max-width:768px){
 
+section{
+padding:70px 0;
+}
+
 .hero h1{
 font-size:2.3rem;
 }
 
-section{
-padding:70px 0;
+nav{
+flex-direction:column;
+align-items:flex-start;
+gap:12px;
 }
 
 }
@@ -229,9 +238,11 @@ padding:70px 0;
 
 <section class="hero">
 
+<div class="hero-glow"></div>
+
 <div class="container">
 
-<h1>Selected Work</h1>
+<h1 class="gradient-text">Selected Work</h1>
 
 <p>
 A selection of platforms, websites, and software systems engineered by SLIUBAR.
