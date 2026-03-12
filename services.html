@@ -21,8 +21,6 @@
   --text:#0F172A;
   --muted:#64748B;
   --border:#E2E8F0;
-  --shadow:0 20px 50px rgba(15,23,42,0.08);
-  --shadow-hover:0 24px 60px rgba(37,99,235,0.12);
 }
 
 *{
@@ -43,30 +41,6 @@ body{
     radial-gradient(circle at 10% 20%, rgba(99,102,241,0.15), transparent 40%),
     radial-gradient(circle at 90% 30%, rgba(37,99,235,0.12), transparent 40%),
     var(--bg);
-  overflow-x:hidden;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
-
-.container{
-  width:min(90%, 1120px);
-  margin:auto;
-}
-
-section{
-  padding:90px 0;
-}
-
-h1,h2,h3{
-  font-weight:700;
-  line-height:1.1;
-}
-
-p{
-  color:var(--muted);
 }
 
 a{
@@ -74,282 +48,339 @@ a{
   color:inherit;
 }
 
-/* ================= NAV ================= */
+p{
+  color:var(--muted);
+}
+
+h1,h2,h3{
+  font-weight:700;
+  letter-spacing:-0.02em;
+}
+
+.container{
+  width:min(92%, 1200px);
+  margin:auto;
+}
+
+section{
+  padding:96px 0;
+}
+
+/* ================= HEADER ================= */
 
 header{
   position:sticky;
   top:0;
-  background:rgba(255,255,255,.8);
+  background:rgba(255,255,255,.78);
   backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(226,232,240,0.85);
+  border-bottom:1px solid var(--border);
   z-index:1000;
 }
 
 nav{
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
+  gap:24px;
   padding:20px 0;
-  gap:20px;
 }
 
 .logo{
   font-weight:800;
   letter-spacing:4px;
+  font-size:1.1rem;
   color:var(--text);
-  flex-shrink:0;
+  white-space:nowrap;
 }
 
 .nav-links{
   display:flex;
-  gap:25px;
+  align-items:center;
+  gap:24px;
   flex-wrap:wrap;
 }
 
 .nav-links a{
-  font-size:14px;
-  color:var(--muted);
+  font-size:0.95rem;
   font-weight:500;
-  transition:color .25s ease, transform .25s ease;
+  color:var(--muted);
+  transition:.25s ease;
 }
 
 .nav-links a:hover{
   color:var(--text);
-  transform:translateY(-1px);
 }
 
 /* ================= HERO ================= */
 
 .hero{
   text-align:center;
-  padding-top:130px;
-  padding-bottom:70px;
-}
-
-.gradient-text{
-  background:linear-gradient(90deg,#2563EB,#6366F1);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  background-clip:text;
-  color:transparent;
+  padding-top:120px;
+  padding-bottom:72px;
 }
 
 .hero h1{
-  font-size:clamp(2.5rem, 6vw, 4.5rem);
+  font-size:clamp(2.4rem, 5vw, 4.2rem);
   max-width:900px;
-  margin:0 auto 22px;
-  letter-spacing:-0.04em;
+  margin:0 auto 18px;
+  line-height:1.05;
 }
 
 .hero p{
-  max-width:700px;
-  margin:auto;
-  font-size:18px;
+  max-width:760px;
+  margin:0 auto;
+  font-size:1.08rem;
 }
 
-/* ================= SERVICE CARD ================= */
-
-.services-wrap{
-  padding-bottom:40px;
-}
+/* ================= SERVICE SECTIONS ================= */
 
 .section{
   display:grid;
-  grid-template-columns:1.05fr 1fr;
-  gap:42px;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
   align-items:center;
-  background:rgba(255,255,255,0.9);
-  border:1px solid var(--border);
-  border-radius:24px;
-  padding:28px;
-  margin-bottom:32px;
-  box-shadow:var(--shadow);
-  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-  overflow:hidden;
 }
 
-.section:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow-hover);
-  border-color:rgba(99,102,241,0.22);
-}
-
-.visual{
-position:relative;
-height:260px;
-border-radius:18px;
-overflow:hidden;
-background:linear-gradient(135deg,#EEF2FF,#F8FAFC);
-border:1px solid rgba(226,232,240,0.9);
-
-display:flex;
-align-items:center;
-justify-content:center;
-
-padding:20px;
-}
-
-.visual img{
-max-width:100%;
-max-height:200px;
-object-fit:contain;
-}
-
-.section-content h2{
-  font-size:clamp(1.6rem, 2.5vw, 2.15rem);
-  margin-bottom:12px;
-  letter-spacing:-0.03em;
-}
-
-.section-content > p{
+.service-copy h2{
+  font-size:clamp(1.9rem, 3vw, 2.5rem);
   margin-bottom:14px;
-  max-width:520px;
+}
+
+.service-copy p{
+  margin-bottom:18px;
+  max-width:640px;
 }
 
 .features{
-  margin-top:14px;
-  padding-left:20px;
-  color:var(--text);
+  padding-left:22px;
+  margin:18px 0 0;
 }
 
 .features li{
-  margin-bottom:8px;
+  margin-bottom:10px;
   color:var(--text);
 }
 
 .meta{
   margin-top:20px;
-  font-size:14px;
+  font-size:0.95rem;
   color:var(--muted);
-  font-weight:500;
 }
 
 .price{
-  margin-top:6px;
+  margin-top:8px;
+  font-size:1.05rem;
   font-weight:700;
   color:var(--primary);
-  font-size:1rem;
 }
 
-/* ================= BUTTON ================= */
-
 .btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
   margin-top:22px;
   padding:14px 28px;
   border-radius:999px;
   background:linear-gradient(90deg,#2563EB,#6366F1);
-  color:white;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
+  color:#fff;
   font-weight:600;
-  transition:transform .3s ease, box-shadow .3s ease, filter .3s ease;
-  box-shadow:0 12px 30px rgba(99,102,241,.22);
+  transition:.3s ease;
+  box-shadow:0 10px 25px rgba(37,99,235,.22);
 }
 
 .btn:hover{
   transform:translateY(-2px);
-  box-shadow:0 16px 40px rgba(99,102,241,.32);
-  filter:brightness(1.03);
+  box-shadow:0 14px 32px rgba(99,102,241,.28);
+}
+
+.visual{
+  min-height:280px;
+  border-radius:24px;
+  border:1px solid var(--border);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.3)),
+    linear-gradient(135deg,#EEF2FF,#F8FAFC);
+  box-shadow:0 20px 50px rgba(15,23,42,.05);
 }
 
 /* ================= FINAL CTA ================= */
 
 .final{
   text-align:center;
-  padding:70px 0 110px;
-}
-
-.final-card{
-  background:rgba(255,255,255,0.92);
-  border:1px solid var(--border);
-  border-radius:28px;
-  padding:56px 24px;
-  box-shadow:var(--shadow);
+  padding:88px 0 100px;
 }
 
 .final h2{
-  font-size:clamp(2rem, 4vw, 2.8rem);
+  font-size:clamp(2rem, 4vw, 2.7rem);
   margin-bottom:16px;
-  letter-spacing:-0.04em;
 }
 
 .final p{
-  max-width:620px;
-  margin:0 auto;
+  max-width:700px;
+  margin:0 auto 22px;
 }
 
 /* ================= FOOTER ================= */
 
 footer{
   text-align:center;
-  padding:34px 0 60px;
+  padding:40px 0 60px;
   border-top:1px solid var(--border);
 }
 
 footer p{
-  font-size:14px;
+  color:var(--muted);
+}
+
+/* ================= APPLE REVEAL ================= */
+
+.reveal{
+  opacity:0;
+  transform:translateY(50px);
+  transition:opacity .9s cubic-bezier(.22,1,.36,1),
+             transform .9s cubic-bezier(.22,1,.36,1);
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1024px){
+  .section{
+    gap:40px;
+  }
+
+  .visual{
+    min-height:240px;
+  }
 }
 
 /* ================= MOBILE ================= */
 
-@media(max-width:900px){
-  .section{
-    grid-template-columns:1fr;
-  }
+@media (max-width: 768px){
 
-  .visual{
-    min-height:220px;
-  }
-}
-
-@media(max-width:768px){
   section{
-    padding:72px 0;
+    padding:64px 0;
   }
 
   nav{
     flex-direction:column;
     align-items:flex-start;
-    gap:12px;
+    gap:14px;
+    padding:16px 0;
+  }
+
+  .logo{
+    font-size:1rem;
+    letter-spacing:3px;
   }
 
   .nav-links{
+    display:flex;
     width:100%;
+    gap:16px;
     overflow-x:auto;
-    gap:18px;
-    padding-bottom:4px;
     flex-wrap:nowrap;
+    padding-bottom:4px;
+    scrollbar-width:none;
+  }
+
+  .nav-links::-webkit-scrollbar{
+    display:none;
+  }
+
+  .nav-links a{
+    white-space:nowrap;
+    font-size:0.92rem;
   }
 
   .hero{
-    padding-top:110px;
-    padding-bottom:50px;
+    padding-top:72px;
+    padding-bottom:32px;
+  }
+
+  .hero h1{
+    font-size:2.6rem;
+    line-height:1.08;
+    margin-bottom:14px;
   }
 
   .hero p{
-    font-size:16px;
+    font-size:1rem;
+    max-width:100%;
+    padding:0 4px;
   }
 
   .section{
-    padding:20px;
-    border-radius:20px;
+    grid-template-columns:1fr;
     gap:24px;
+    padding:28px;
+    background:rgba(255,255,255,0.72);
+    border:1px solid var(--border);
+    border-radius:24px;
+    box-shadow:0 14px 30px rgba(15,23,42,.04);
+  }
+
+  .section + .section{
+    margin-top:18px;
+  }
+
+  .service-copy h2{
+    font-size:2rem;
+    line-height:1.12;
+  }
+
+  .service-copy p{
+    font-size:1rem;
+    margin-bottom:14px;
+  }
+
+  .features{
+    padding-left:20px;
+    margin-top:14px;
+  }
+
+  .features li{
+    font-size:1rem;
+    line-height:1.5;
+    margin-bottom:10px;
+  }
+
+  .meta{
+    margin-top:18px;
+    font-size:1rem;
+  }
+
+  .price{
+    font-size:1.15rem;
   }
 
   .visual{
     min-height:180px;
-    border-radius:16px;
+    order:-1;
+    border-radius:20px;
   }
 
   .btn{
     width:100%;
     text-align:center;
+    padding:15px 22px;
+    margin-top:18px;
   }
 
-  .final-card{
-    padding:40px 20px;
+  .final{
+    padding:72px 0 84px;
+  }
+
+  .final h2{
+    font-size:2rem;
+  }
+
+  .final p{
+    font-size:1rem;
   }
 }
 </style>
@@ -373,60 +404,56 @@ footer p{
   </div>
 </header>
 
-<section class="hero">
+<section class="hero reveal">
   <div class="container">
-    <h1 class="gradient-text hero-title">Technology Built to Grow Your Business</h1>
-    <p class="hero-text">
-      We design and engineer custom digital platforms that help businesses automate operations,
-      attract more customers, and scale with confidence.
+    <h1>Custom Software &amp; AI Solutions</h1>
+    <p>
+      We design and build high-performance websites, AI automation systems,
+      and scalable software platforms.
     </p>
   </div>
 </section>
 
-<div class="container services-wrap">
+<div class="container">
 
-  <section class="section service-card">
-    <div class="visual service-visual">
-      <img src="images/website.jpg" alt="Custom business website design service">
-    </div>
-
-    <div class="section-content">
+  <section class="section reveal">
+    <div class="service-copy">
       <h2>Custom Business Websites</h2>
       <p>Professional websites designed to represent your brand and convert visitors into customers.</p>
 
       <ul class="features">
-        <li>Custom website design</li>
-        <li>Fully responsive mobile layout</li>
+        <li>Custom website design (no templates)</li>
+        <li>Fully responsive mobile and desktop layout</li>
         <li>5–10 pages depending on business needs</li>
         <li>Contact forms and lead capture</li>
         <li>WhatsApp and Google Maps integration</li>
         <li>Basic SEO setup</li>
         <li>Website performance optimization</li>
-        <li>Deployment guidance</li>
+        <li>Deployment and hosting guidance</li>
       </ul>
 
       <div class="meta">Timeline: 2–3 weeks</div>
       <div class="price">Starting from 8,000 AED</div>
 
-      <a href="start-project.html" class="btn">Start Project</a>
+      <a class="btn" href="start-project.html">Start Project</a>
     </div>
+
+    <div class="visual"></div>
   </section>
 
-  <section class="section service-card">
-    <div class="visual service-visual">
-      <img src="images/booking.png" alt="Online booking system service">
-    </div>
+  <section class="section reveal">
+    <div class="visual"></div>
 
-    <div class="section-content">
+    <div class="service-copy">
       <h2>Online Booking Systems</h2>
-      <p>Custom booking platforms for businesses managing appointments and services.</p>
+      <p>Custom booking platforms for businesses managing appointments, classes, or services.</p>
 
       <ul class="features">
         <li>Online appointment scheduling</li>
         <li>Customer account registration</li>
         <li>Admin dashboard</li>
         <li>Calendar management</li>
-        <li>Email notifications</li>
+        <li>Email confirmation notifications</li>
         <li>Reporting dashboard</li>
         <li>Secure database storage</li>
       </ul>
@@ -434,18 +461,14 @@ footer p{
       <div class="meta">Timeline: 4–6 weeks</div>
       <div class="price">Starting from 15,000 AED</div>
 
-      <a href="start-project.html" class="btn">Start Project</a>
+      <a class="btn" href="start-project.html">Start Project</a>
     </div>
   </section>
 
-  <section class="section service-card">
-    <div class="visual service-visual">
-      <img src="images/bot.png" alt="AI chatbot service">
-    </div>
-
-    <div class="section-content">
-      <h2>AI Chatbots</h2>
-      <p>AI assistants that answer customer questions and capture leads automatically.</p>
+  <section class="section reveal">
+    <div class="service-copy">
+      <h2>AI Chatbots for Businesses</h2>
+      <p>AI-powered assistants that answer customer questions and capture leads automatically.</p>
 
       <ul class="features">
         <li>AI chatbot integration</li>
@@ -459,24 +482,24 @@ footer p{
       <div class="meta">Timeline: 2–3 weeks</div>
       <div class="price">Starting from 7,000 AED</div>
 
-      <a href="start-project.html" class="btn">Start Project</a>
+      <a class="btn" href="start-project.html">Start Project</a>
     </div>
+
+    <div class="visual"></div>
   </section>
 
-  <section class="section service-card">
-    <div class="visual service-visual">
-      <img src="images/dashboard.png" alt="Business dashboard service">
-    </div>
+  <section class="section reveal">
+    <div class="visual"></div>
 
-    <div class="section-content">
-      <h2>Business Dashboards</h2>
-      <p>Custom internal tools to manage data, operations and reporting.</p>
+    <div class="service-copy">
+      <h2>Business Dashboards &amp; Internal Systems</h2>
+      <p>Custom software tools that help businesses track data, manage operations, and automate processes.</p>
 
       <ul class="features">
-        <li>Secure admin login</li>
-        <li>Custom dashboards</li>
+        <li>Secure admin login system</li>
+        <li>Custom dashboards and data visualization</li>
         <li>Database integration</li>
-        <li>Reports export</li>
+        <li>Reports export (CSV / PDF)</li>
         <li>Workflow automation</li>
         <li>Performance analytics</li>
       </ul>
@@ -484,16 +507,12 @@ footer p{
       <div class="meta">Timeline: 4–5 weeks</div>
       <div class="price">Starting from 12,000 AED</div>
 
-      <a href="start-project.html" class="btn">Start Project</a>
+      <a class="btn" href="start-project.html">Start Project</a>
     </div>
   </section>
 
-  <section class="section service-card">
-    <div class="visual service-visual">
-      <img src="images/app.png" alt="Mobile app development service">
-    </div>
-
-    <div class="section-content">
+  <section class="section reveal">
+    <div class="service-copy">
       <h2>Mobile App Development</h2>
       <p>Cross-platform mobile applications for startups and digital products.</p>
 
@@ -501,129 +520,55 @@ footer p{
         <li>Cross-platform mobile app (.NET MAUI)</li>
         <li>User authentication</li>
         <li>Backend API integration</li>
-        <li>Dashboard features</li>
+        <li>Basic dashboard features</li>
         <li>Deployment guidance</li>
       </ul>
 
       <div class="meta">Timeline: 6–10 weeks</div>
       <div class="price">Starting from 25,000 AED</div>
 
-      <a href="start-project.html" class="btn">Start Project</a>
+      <a class="btn" href="start-project.html">Start Project</a>
     </div>
+
+    <div class="visual"></div>
   </section>
 
 </div>
 
-<section class="final">
+<section class="final reveal">
   <div class="container">
-    <div class="final-card">
-      <h2>Let’s Build Something Exceptional</h2>
-      <p>Tell us about your project and we’ll recommend the best solution.</p>
-      <a href="start-project.html" class="btn">Start Your Project</a>
-    </div>
+    <h2>Let’s Build Something Exceptional</h2>
+    <p>Tell us about your project and we’ll recommend the best solution.</p>
+    <a href="start-project.html" class="btn">Start Your Project</a>
   </div>
 </section>
 
 <footer>
-  <p>© SLIUBAR</p>
+  <div class="container">
+    <p>© SLIUBAR</p>
+  </div>
 </footer>
 
-<!-- GSAP -->
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-
 <script>
-gsap.registerPlugin(ScrollTrigger);
+const reveals = document.querySelectorAll(".reveal");
 
-// Hero intro
-gsap.from(".logo", {
-  y: -18,
-  opacity: 0,
-  duration: 0.8,
-  ease: "power3.out"
-});
+function revealOnScroll(){
+  const windowHeight = window.innerHeight;
 
-gsap.from(".nav-links a", {
-  y: -16,
-  opacity: 0,
-  duration: 0.7,
-  stagger: 0.08,
-  delay: 0.1,
-  ease: "power3.out"
-});
-
-gsap.from(".hero-title", {
-  y: 42,
-  opacity: 0,
-  duration: 1,
-  ease: "power3.out",
-  delay: 0.2
-});
-
-gsap.from(".hero-text", {
-  y: 26,
-  opacity: 0,
-  duration: 0.9,
-  ease: "power3.out",
-  delay: 0.38
-});
-
-// Service cards scroll reveal
-gsap.utils.toArray(".service-card").forEach((card) => {
-  const visual = card.querySelector(".service-visual");
-  const content = card.querySelector(".section-content");
-
-  gsap.from(card, {
-    scrollTrigger: {
-      trigger: card,
-      start: "top 82%",
-      toggleActions: "play none none none"
-    },
-    y: 70,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out"
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < windowHeight - 80){
+      el.classList.add("active");
+    }
   });
+}
 
-  gsap.from(visual, {
-    scrollTrigger: {
-      trigger: card,
-      start: "top 82%",
-      toggleActions: "play none none none"
-    },
-    scale: 0.94,
-    opacity: 0,
-    duration: 1,
-    ease: "power3.out"
-  });
-
-  gsap.from(content.children, {
-    scrollTrigger: {
-      trigger: card,
-      start: "top 78%",
-      toggleActions: "play none none none"
-    },
-    y: 24,
-    opacity: 0,
-    duration: 0.7,
-    stagger: 0.08,
-    ease: "power2.out"
-  });
-});
-
-// Final CTA
-gsap.from(".final-card", {
-  scrollTrigger: {
-    trigger: ".final-card",
-    start: "top 85%",
-    toggleActions: "play none none none"
-  },
-  y: 50,
-  opacity: 0,
-  duration: 1,
-  ease: "power3.out"
-});
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
 </script>
 
 </body>
 </html>
+
+
+
