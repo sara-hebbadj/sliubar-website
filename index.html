@@ -145,7 +145,6 @@ nav{
   text-align:center;
   padding-top:140px;
   position:relative;
-  overflow:hidden;
 }
 
 .hero-glow{
@@ -187,25 +186,6 @@ nav{
   flex-wrap:wrap;
 }
 
-/* HERO PRODUCT VISUAL */
-
-.hero-product{
-  margin-top:70px;
-  display:flex;
-  justify-content:center;
-  perspective:1200px;
-}
-
-.hero-product video{
-  width:100%;
-  max-width:900px;
-  border-radius:24px;
-  box-shadow:0 40px 80px rgba(15,23,42,.15);
-  border:1px solid var(--border);
-  display:block;
-  background:#dbe7ff;
-}
-
 /* ================= TRUST ================= */
 
 .trust{
@@ -243,21 +223,6 @@ nav{
   box-shadow:0 25px 50px rgba(15,23,42,.08);
 }
 
-/* ================= PROCESS ================= */
-
-.step{
-  background:white;
-  border:1px solid var(--border);
-  padding:30px;
-  border-radius:18px;
-  transition:.3s;
-}
-
-.step:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 40px rgba(15,23,42,.08);
-}
-
 /* ================= CTA ================= */
 
 .cta{
@@ -283,12 +248,6 @@ footer{
   border-radius:40px;
   display:inline-block;
   margin-top:20px;
-  transition:.3s;
-}
-
-.whatsapp:hover{
-  transform:translateY(-3px);
-  box-shadow:0 18px 40px rgba(37,99,235,.25);
 }
 
 /* ================= GRID ================= */
@@ -299,19 +258,11 @@ footer{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .grid.process{
-    grid-template-columns:repeat(2,1fr);
-  }
-
 }
 
 @media(min-width:1024px){
 
   .grid.services{
-    grid-template-columns:repeat(4,1fr);
-  }
-
-  .grid.process{
     grid-template-columns:repeat(4,1fr);
   }
 
@@ -353,10 +304,6 @@ footer{
     font-size:15px;
   }
 
-  .hero-product video{
-    max-width:100%;
-  }
-
 }
 
 </style>
@@ -365,349 +312,151 @@ footer{
 <body>
 
 <header>
-  <div class="container">
+<div class="container">
 
-    <nav>
+<nav>
 
-      <div class="logo">SLIUBAR</div>
+<div class="logo">SLIUBAR</div>
 
-      <div class="nav-links">
-        <a href="services.html">Services</a>
-        <a href="work.html">Selected Work</a>
-        <a href="#process">Approach</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </div>
+<div class="nav-links">
+<a href="services.html">Services</a>
+<a href="work.html">Demos</a>
+<a href="#contact">Contact</a>
+</div>
 
-    </nav>
+</nav>
 
-  </div>
+</div>
 </header>
 
 <section class="hero">
 
-  <div class="hero-glow"></div>
+<div class="hero-glow"></div>
 
-  <div class="container">
+<div class="container">
 
-    <h1 class="gradient-text hero-title">
-      We Engineer the Technology Modern Businesses Depend On.
-    </h1>
+<h1 class="gradient-text">
+We Engineer the Technology Modern Businesses Depend On.
+</h1>
 
-    <p class="hero-text">
-      Custom software, AI systems, and digital platforms designed to help businesses grow faster, automate operations, and scale with confidence.
-    </p>
+<p>
+Custom software, AI systems, and digital platforms designed to help businesses automate operations, increase revenue, and scale with confidence.
+</p>
 
-    <div class="hero-buttons">
-      <a href="start-project.html" class="btn btn-primary hero-btn-primary">
-        Start Your Project
-      </a>
+<div class="hero-buttons">
 
-      <a href="services.html" class="btn btn-secondary hero-btn-secondary">
-        View Services
-      </a>
-    </div>
+<a href="start-project.html" class="btn btn-primary">
+Start Your Project
+</a>
 
-    <div class="hero-product">
-      <video autoplay muted loop playsinline preload="auto" aria-label="SLIUBAR platform interface video">
-        <source src="heroproduct (1).mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+<a href="services.html" class="btn btn-secondary">
+View Services
+</a>
 
-  </div>
+</div>
+
+</div>
 
 </section>
 
 <section class="trust">
-  Trusted by founders, startups, and growing businesses across UAE & globally.
+Trusted by founders, startups, and growing businesses across UAE & globally.
 </section>
 
 <section class="section-alt">
 
-  <div class="container">
+<div class="container">
 
-    <h2 style="text-align:center;margin-bottom:60px;" class="section-heading">
-      What We Build
-    </h2>
+<h2 style="text-align:center;margin-bottom:60px;">
+Work With Us
+</h2>
 
-    <div class="grid services">
+<div class="grid services">
 
-      <div class="card service-card">
-        <h3>Custom Business Websites</h3>
-        <p>
-          Build a high-performance website designed to convert visitors into customers and support your business growth.
-        </p>
-      </div>
+<a href="services.html" class="card">
+<h3>Business Websites</h3>
+<p>
+Professional websites designed to represent your brand and convert visitors into paying customers.
+</p>
+</a>
 
-      <div class="card service-card">
-        <h3>AI Chatbots</h3>
-        <p>
-          Automate customer support, answer questions instantly, and capture leads with intelligent AI assistants.
-        </p>
-      </div>
+<a href="services.html" class="card">
+<h3>AI Chatbots</h3>
+<p>
+AI assistants that answer customer questions, automate support, and capture leads 24/7.
+</p>
+</a>
 
-      <a href="https://sara-hebbadj.github.io/gym-booking-demo/" target="_blank" class="card service-card">
-        <h3>Online Booking Platforms</h3>
-        <p>
-          Manage appointments, classes, and reservations through a seamless online booking system.
-        </p>
-      </a>
+<a href="services.html" class="card">
+<h3>Booking Platforms</h3>
+<p>
+Online booking systems that manage appointments, reservations, and customer scheduling.
+</p>
+</a>
 
-      <div class="card service-card">
-        <h3>Business Dashboards</h3>
-        <p>
-          Track operations, analytics, and performance with secure custom business dashboards.
-        </p>
-      </div>
+<a href="services.html" class="card">
+<h3>Business Dashboards</h3>
+<p>
+Custom internal software to manage operations, analytics, and reporting in one place.
+</p>
+</a>
 
-    </div>
+</div>
 
-  </div>
-
-</section>
-
-<section id="process">
-
-  <div class="container">
-
-    <h2 style="text-align:center;margin-bottom:60px;" class="section-heading">
-      Our Proven Approach
-    </h2>
-
-    <div class="grid process">
-
-      <div class="step process-step">
-        <h3>Strategy</h3>
-        <p>Business goals translated into technical architecture.</p>
-      </div>
-
-      <div class="step process-step">
-        <h3>Design</h3>
-        <p>Premium user experiences aligned with brand identity.</p>
-      </div>
-
-      <div class="step process-step">
-        <h3>Engineering</h3>
-        <p>Clean scalable systems built for reliability.</p>
-      </div>
-
-      <div class="step process-step">
-        <h3>Growth</h3>
-        <p>Deployment and continuous optimization.</p>
-      </div>
-
-    </div>
-
-  </div>
+</div>
 
 </section>
 
-<section id="about" class="section-alt">
+<section id="about">
 
-  <div class="container" style="text-align:center;max-width:750px;">
+<div class="container" style="text-align:center;max-width:750px;">
 
-    <h2 style="margin-bottom:20px;" class="section-heading">
-      Why Companies Work With SLIUBAR
-    </h2>
+<h2 style="margin-bottom:20px;">
+Why Businesses Work With SLIUBAR
+</h2>
 
-    <p class="about-text">
-      Based in Dubai, SLIUBAR partners with ambitious organizations to design and engineer digital products that drive measurable business growth through strategy, design, and technology.
-    </p>
+<p>
+SLIUBAR is a Dubai-based technology studio helping businesses design and build modern digital systems. We combine strategy, engineering, and design to deliver reliable platforms that improve operations, automate workflows, and unlock new growth opportunities.
+</p>
 
-  </div>
+</div>
 
 </section>
 
 <section class="container">
 
-  <div class="cta cta-box">
+<div class="cta">
 
-    <h2 style="margin-bottom:25px;">
-      Ready to Build Technology That Scales With Your Business?
-    </h2>
+<h2 style="margin-bottom:25px;">
+Ready to Build Technology That Scales With Your Business?
+</h2>
 
-    <a href="start-project.html" class="btn btn-primary">
-      Start Your Project
-    </a>
+<a href="start-project.html" class="btn btn-primary">
+Start Your Project
+</a>
 
-  </div>
+</div>
 
 </section>
 
 <footer id="contact">
 
-  <div class="container">
+<div class="container">
 
-    <p>Email: sara@sliubar.com</p>
-    <p>Dubai, UAE</p>
+<p>Email: sara@sliubar.com</p>
+<p>Dubai, UAE</p>
 
-    <a href="https://wa.me/971547944719" target="_blank" class="whatsapp">
-      Contact on WhatsApp
-    </a>
+<a href="https://wa.me/971547944719" target="_blank" class="whatsapp">
+Contact on WhatsApp
+</a>
 
-    <p style="margin-top:20px;">
-      © SLIUBAR
-    </p>
+<p style="margin-top:20px;">
+© SLIUBAR
+</p>
 
-  </div>
+</div>
 
 </footer>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-<script>
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.set([
-    ".hero-title",
-    ".hero-text",
-    ".hero-btn-primary",
-    ".hero-btn-secondary",
-    ".hero-product video",
-    ".trust",
-    ".section-heading",
-    ".service-card",
-    ".process-step",
-    ".about-text",
-    ".cta-box",
-    "footer .container"
-  ], {
-    opacity: 0
-  });
-
-  gsap.fromTo(".hero-glow",
-    { scale: 0.8, opacity: 0 },
-    { scale: 1.15, opacity: 1, duration: 1.4, ease: "power2.out" }
-  );
-
-  const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
-
-  heroTl
-    .fromTo(".hero-title",
-      { y: 60, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1 }
-    )
-    .fromTo(".hero-text",
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.8 },
-      "-=0.55"
-    )
-    .fromTo(".hero-btn-primary, .hero-btn-secondary",
-      { y: 20, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.7, stagger: 0.12 },
-      "-=0.45"
-    )
-    .fromTo(".hero-product video",
-      { y: 50, opacity: 0, scale: 0.96, rotateX: 10 },
-      { y: 0, opacity: 1, scale: 1, rotateX: 0, duration: 1 },
-      "-=0.35"
-    );
-
-  gsap.fromTo(".trust",
-    { y: 25, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".trust",
-        start: "top 85%"
-      }
-    }
-  );
-
-  gsap.utils.toArray(".section-heading").forEach((heading) => {
-    gsap.fromTo(heading,
-      { y: 30, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: heading,
-          start: "top 85%"
-        }
-      }
-    );
-  });
-
-  gsap.fromTo(".service-card",
-    { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.12,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".services",
-        start: "top 82%"
-      }
-    }
-  );
-
-  gsap.fromTo(".process-step",
-    { y: 40, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      stagger: 0.12,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".process",
-        start: "top 82%"
-      }
-    }
-  );
-
-  gsap.fromTo(".about-text",
-    { y: 30, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: "#about",
-        start: "top 82%"
-      }
-    }
-  );
-
-  gsap.fromTo(".cta-box",
-    { y: 35, opacity: 0, scale: 0.98 },
-    {
-      y: 0,
-      opacity: 1,
-      scale: 1,
-      duration: 0.9,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: ".cta-box",
-        start: "top 85%"
-      }
-    }
-  );
-
-  gsap.fromTo("footer .container",
-    { y: 25, opacity: 0 },
-    {
-      y: 0,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: "footer",
-        start: "top 90%"
-      }
-    }
-  );
-</script>
 
 </body>
 </html>
