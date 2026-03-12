@@ -20,7 +20,6 @@
 
 :root{
 --bg:#F8FAFC;
---surface:#FFFFFF;
 --primary:#2563EB;
 --accent:#6366F1;
 --text:#0F172A;
@@ -46,8 +45,6 @@ radial-gradient(circle at 50% 90%, rgba(99,102,241,0.12), transparent 45%),
 var(--bg);
 }
 
-/* ---------- LAYOUT ---------- */
-
 .container{
 width:92%;
 max-width:1100px;
@@ -55,7 +52,7 @@ margin:auto;
 }
 
 section{
-padding:50px 0;
+padding:70px 0;
 }
 
 h1,h2,h3{
@@ -86,7 +83,7 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 0;
+padding:22px 0;
 }
 
 .logo{
@@ -112,8 +109,8 @@ color:var(--text);
 
 .hero{
 text-align:center;
-padding-top:100px;
-padding-bottom:20px;
+padding-top:140px;
+padding-bottom:60px;
 }
 
 .gradient-text{
@@ -123,14 +120,14 @@ background:linear-gradient(90deg,#2563EB,#6366F1);
 }
 
 .hero h1{
-font-size:3rem;
-margin-bottom:15px;
+font-size:3.8rem;
+margin-bottom:20px;
 }
 
 .hero p{
-max-width:640px;
+max-width:680px;
 margin:auto;
-font-size:17px;
+font-size:18px;
 }
 
 /* ---------- SERVICE CARDS ---------- */
@@ -139,20 +136,20 @@ font-size:17px;
 margin-top:30px;
 display:flex;
 flex-direction:column;
-gap:22px;
+gap:26px;
 }
 
 .service-card{
 
-background:rgba(255,255,255,.85);
+background:white;
 border:1px solid var(--border);
 border-radius:18px;
 
-padding:30px;
+padding:34px;
 
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:40px;
+gap:45px;
 
 box-shadow:
 0 10px 25px rgba(0,0,0,0.04),
@@ -180,7 +177,7 @@ max-width:420px;
 /* ---------- RIGHT ---------- */
 
 .features{
-margin-top:5px;
+margin-top:8px;
 padding-left:18px;
 }
 
@@ -192,21 +189,21 @@ font-size:14px;
 /* ---------- META ---------- */
 
 .meta{
-margin-top:12px;
+margin-top:14px;
 font-size:14px;
 }
 
 .price{
 font-weight:600;
 color:var(--primary);
-margin-bottom:12px;
+margin-bottom:14px;
 }
 
 /* ---------- BUTTON ---------- */
 
 .btn{
 
-padding:12px 24px;
+padding:12px 26px;
 border-radius:40px;
 
 background:linear-gradient(90deg,#2563EB,#6366F1);
@@ -229,20 +226,32 @@ box-shadow:0 12px 30px rgba(99,102,241,.35);
 
 .final{
 text-align:center;
-padding:60px 0;
+padding:120px 40px;
+max-width:720px;
+margin:80px auto;
+
+background:linear-gradient(135deg,#EEF2FF,#FFFFFF);
+border:1px solid var(--border);
+border-radius:30px;
 }
 
 .final h2{
-font-size:2rem;
-margin-bottom:15px;
+font-size:2.4rem;
+margin-bottom:20px;
+}
+
+.final p{
+margin-bottom:28px;
+font-size:17px;
 }
 
 /* ---------- FOOTER ---------- */
 
 footer{
 text-align:center;
-padding:50px 0;
+padding:90px 0;
 border-top:1px solid var(--border);
+font-size:15px;
 }
 
 /* ---------- MOBILE ---------- */
@@ -250,12 +259,12 @@ border-top:1px solid var(--border);
 @media(max-width:768px){
 
 .hero h1{
-font-size:2.2rem;
+font-size:2.4rem;
 }
 
 .service-card{
 grid-template-columns:1fr;
-gap:20px;
+gap:22px;
 }
 
 }
@@ -270,9 +279,10 @@ gap:20px;
 
 <nav>
 
-<div class="logo">SLIUBAR</div>
+<a href="index.html" class="logo">SLIUBAR</a>
 
 <div class="nav-links">
+<a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="work.html">Demos</a>
 <a href="index.html#contact">Contact</a>
@@ -468,9 +478,13 @@ Cross-platform mobile applications for startups and digital products.
 
 <h2>Let’s Build Something Exceptional</h2>
 
-<p>Tell us about your project and we’ll recommend the best solution.</p>
+<p>
+Tell us about your project and we’ll recommend the best solution.
+</p>
 
-<a href="start-project.html" class="btn">Start Your Project</a>
+<a href="start-project.html" class="btn">
+Start Your Project
+</a>
 
 </section>
 
@@ -488,14 +502,12 @@ gsap.from(".hero h1",{y:60,opacity:0,duration:1})
 gsap.from(".hero p",{y:30,opacity:0,delay:.2,duration:1})
 
 gsap.utils.toArray(".service-card").forEach(card=>{
-
 gsap.from(card,{
 scrollTrigger:{trigger:card,start:"top 85%"},
 y:60,
 opacity:0,
-duration:0.8
+duration:.8
 })
-
 })
 
 </script>
