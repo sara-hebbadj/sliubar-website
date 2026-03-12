@@ -7,7 +7,7 @@
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 
-<title>Selected Work | SLIUBAR</title>
+<title>Demos | SLIUBAR</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -193,6 +193,30 @@ grid-template-columns:1fr 1fr;
 
 }
 
+/* ================= FOOTER ================= */
+
+footer{
+text-align:center;
+padding:70px 0;
+border-top:1px solid var(--border);
+margin-top:100px;
+}
+
+.whatsapp{
+background:linear-gradient(90deg,#2563EB,#6366F1);
+color:white;
+padding:12px 24px;
+border-radius:40px;
+display:inline-block;
+margin-top:20px;
+transition:.3s;
+}
+
+.whatsapp:hover{
+transform:translateY(-3px);
+box-shadow:0 18px 40px rgba(37,99,235,.25);
+}
+
 /* ================= MOBILE ================= */
 
 @media(max-width:768px){
@@ -223,12 +247,13 @@ gap:12px;
 
 <nav>
 
-<div class="logo">SLIUBAR</div>
+<a href="index.html" class="logo">SLIUBAR</a>
 
 <div class="nav-links">
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
-<a href="work.html">Selected Work</a>
+<a href="work.html">Demos</a>
+<a href="index.html#contact">Contact</a>
 </div>
 
 </nav>
@@ -242,7 +267,7 @@ gap:12px;
 
 <div class="container">
 
-<h1 class="gradient-text">Selected Work</h1>
+<h1 class="gradient-text">Demos</h1>
 
 <p>
 A selection of platforms, websites, and software systems engineered by SLIUBAR.
@@ -250,34 +275,28 @@ A selection of platforms, websites, and software systems engineered by SLIUBAR.
 
 <div class="portfolio">
 
-<!-- GYM BOOKING -->
+<!-- GYM -->
 
 <a href="https://sara-hebbadj.github.io/gym-booking-demo/" target="_blank" class="project">
 
 <img src="demos/gym.png" alt="Gym booking platform">
 
 <div class="project-content">
-
 <h3>Gym Booking Platform</h3>
-
 <span class="project-link">View Live Demo →</span>
-
 </div>
 
 </a>
 
-<!-- CAFE WEBSITE -->
+<!-- CAFE -->
 
 <a href="https://sara-hebbadj.github.io/cafe-website-demo/" target="_blank" class="project">
 
 <img src="demos/cafe.png" alt="Cafe website">
 
 <div class="project-content">
-
 <h3>Café Website</h3>
-
 <span class="project-link">View Live Demo →</span>
-
 </div>
 
 </a>
@@ -289,36 +308,49 @@ A selection of platforms, websites, and software systems engineered by SLIUBAR.
 <img src="demos/chatbot.png" alt="AI chatbot">
 
 <div class="project-content">
-
 <h3>AI Customer Assistant</h3>
-
 <span class="project-link">View Live Demo →</span>
-
 </div>
 
 </a>
 
-<!-- REAL ESTATE DASHBOARD -->
+<!-- REAL ESTATE -->
 
 <a href="https://sara-hebbadj.github.io/real-estate-dashboard-demo/" target="_blank" class="project">
 
 <img src="demos/realestate.png" alt="Real estate dashboard">
 
 <div class="project-content">
-
 <h3>Real Estate Analytics Dashboard</h3>
-
 <span class="project-link">View Live Demo →</span>
-
 </div>
 
-</div>
+</a>
 
 </div>
 
 </div>
 
 </section>
+
+<footer id="contact">
+
+<div class="container">
+
+<p>Email: sara@sliubar.com</p>
+<p>Dubai, UAE</p>
+
+<a href="https://wa.me/971547944719" target="_blank" class="whatsapp">
+Contact on WhatsApp
+</a>
+
+<p style="margin-top:20px;">
+© SLIUBAR
+</p>
+
+</div>
+
+</footer>
 
 </body>
 </html>
