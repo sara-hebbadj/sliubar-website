@@ -55,7 +55,7 @@ margin:auto;
 }
 
 section{
-padding:70px 0;
+padding:50px 0;
 }
 
 h1,h2,h3{
@@ -76,7 +76,7 @@ color:inherit;
 header{
 position:sticky;
 top:0;
-background:rgba(255,255,255,.75);
+background:rgba(255,255,255,.8);
 backdrop-filter:blur(18px);
 border-bottom:1px solid var(--border);
 z-index:1000;
@@ -86,7 +86,7 @@ nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 0;
+padding:18px 0;
 }
 
 .logo{
@@ -112,7 +112,8 @@ color:var(--text);
 
 .hero{
 text-align:center;
-padding-top:120px;
+padding-top:100px;
+padding-bottom:20px;
 }
 
 .gradient-text{
@@ -122,97 +123,97 @@ background:linear-gradient(90deg,#2563EB,#6366F1);
 }
 
 .hero h1{
-font-size:3.6rem;
-margin-bottom:20px;
+font-size:3rem;
+margin-bottom:15px;
 }
 
 .hero p{
 max-width:640px;
 margin:auto;
-font-size:18px;
+font-size:17px;
 }
 
-/* ---------- SERVICES ---------- */
+/* ---------- SERVICE CARDS ---------- */
 
 .services{
-margin-top:60px;
+margin-top:30px;
 display:flex;
 flex-direction:column;
-gap:40px;
+gap:22px;
 }
 
 .service-card{
 
-background:rgba(255,255,255,.75);
-backdrop-filter:blur(12px);
-
+background:rgba(255,255,255,.85);
 border:1px solid var(--border);
-border-radius:22px;
+border-radius:18px;
 
-padding:45px;
+padding:30px;
 
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:center;
+gap:40px;
 
 box-shadow:
-0 15px 40px rgba(0,0,0,0.04),
-0 40px 80px rgba(37,99,235,0.06);
+0 10px 25px rgba(0,0,0,0.04),
+0 30px 60px rgba(37,99,235,0.05);
 
-transition:.35s;
+transition:.25s;
 }
 
 .service-card:hover{
-transform:translateY(-6px);
-box-shadow:
-0 20px 60px rgba(0,0,0,0.06),
-0 50px 120px rgba(37,99,235,0.1);
+transform:translateY(-4px);
 }
 
-.service-card:nth-child(even){
-direction:rtl;
+/* ---------- LEFT ---------- */
+
+.service-left h2{
+margin-bottom:10px;
+font-size:1.5rem;
 }
 
-.service-card:nth-child(even) div{
-direction:ltr;
+.service-left p{
+font-size:15px;
+max-width:420px;
 }
 
-/* ---------- FEATURES ---------- */
+/* ---------- RIGHT ---------- */
 
 .features{
-margin-top:18px;
+margin-top:5px;
 padding-left:18px;
 }
 
 .features li{
-margin-bottom:8px;
+margin-bottom:6px;
+font-size:14px;
 }
 
 /* ---------- META ---------- */
 
 .meta{
-margin-top:20px;
+margin-top:12px;
 font-size:14px;
 }
 
 .price{
-margin-top:4px;
 font-weight:600;
 color:var(--primary);
+margin-bottom:12px;
 }
 
 /* ---------- BUTTON ---------- */
 
 .btn{
-margin-top:22px;
-padding:14px 28px;
-border-radius:50px;
+
+padding:12px 24px;
+border-radius:40px;
 
 background:linear-gradient(90deg,#2563EB,#6366F1);
 
 color:white;
 font-weight:600;
+font-size:14px;
 
 display:inline-block;
 
@@ -221,26 +222,26 @@ transition:.3s;
 
 .btn:hover{
 transform:translateY(-2px);
-box-shadow:0 15px 40px rgba(99,102,241,.35);
+box-shadow:0 12px 30px rgba(99,102,241,.35);
 }
 
-/* ---------- FINAL CTA ---------- */
+/* ---------- CTA ---------- */
 
 .final{
 text-align:center;
-padding:90px 0;
+padding:60px 0;
 }
 
 .final h2{
-font-size:2.1rem;
-margin-bottom:20px;
+font-size:2rem;
+margin-bottom:15px;
 }
 
 /* ---------- FOOTER ---------- */
 
 footer{
 text-align:center;
-padding:60px 0;
+padding:50px 0;
 border-top:1px solid var(--border);
 }
 
@@ -254,7 +255,7 @@ font-size:2.2rem;
 
 .service-card{
 grid-template-columns:1fr;
-padding:30px;
+gap:20px;
 }
 
 }
@@ -272,10 +273,8 @@ padding:30px;
 <div class="logo">SLIUBAR</div>
 
 <div class="nav-links">
-<a href="index.html">Home</a>
 <a href="services.html">Services</a>
-<a href="index.html#process">Approach</a>
-<a href="index.html#about">About</a>
+<a href="work.html">Demos</a>
 <a href="index.html#contact">Contact</a>
 </div>
 
@@ -293,8 +292,7 @@ Technology Built to Grow Your Business
 </h1>
 
 <p>
-We design and engineer custom digital platforms that help businesses automate operations,
-attract more customers, and scale with confidence.
+We design and engineer custom digital platforms that help businesses automate operations, attract more customers, and scale with confidence.
 </p>
 
 </div>
@@ -309,13 +307,14 @@ attract more customers, and scale with confidence.
 
 <div class="service-card">
 
-<div>
-
+<div class="service-left">
 <h2>Custom Business Websites</h2>
-
 <p>
 Professional websites designed to represent your brand and convert visitors into customers.
 </p>
+</div>
+
+<div>
 
 <ul class="features">
 <li>Custom website design</li>
@@ -341,13 +340,14 @@ Professional websites designed to represent your brand and convert visitors into
 
 <div class="service-card">
 
-<div>
-
+<div class="service-left">
 <h2>Online Booking Systems</h2>
-
 <p>
 Custom booking platforms for businesses managing appointments and services.
 </p>
+</div>
+
+<div>
 
 <ul class="features">
 <li>Online appointment scheduling</li>
@@ -372,13 +372,14 @@ Custom booking platforms for businesses managing appointments and services.
 
 <div class="service-card">
 
-<div>
-
+<div class="service-left">
 <h2>AI Chatbots</h2>
-
 <p>
 AI assistants that answer customer questions and capture leads automatically.
 </p>
+</div>
+
+<div>
 
 <ul class="features">
 <li>AI chatbot integration</li>
@@ -402,13 +403,14 @@ AI assistants that answer customer questions and capture leads automatically.
 
 <div class="service-card">
 
-<div>
-
+<div class="service-left">
 <h2>Business Dashboards</h2>
-
 <p>
 Custom internal tools to manage data, operations and reporting.
 </p>
+</div>
+
+<div>
 
 <ul class="features">
 <li>Secure admin login</li>
@@ -432,13 +434,14 @@ Custom internal tools to manage data, operations and reporting.
 
 <div class="service-card">
 
-<div>
-
+<div class="service-left">
 <h2>Mobile App Development</h2>
-
 <p>
 Cross-platform mobile applications for startups and digital products.
 </p>
+</div>
+
+<div>
 
 <ul class="features">
 <li>Cross-platform mobile app (.NET MAUI)</li>
@@ -481,31 +484,16 @@ Cross-platform mobile applications for startups and digital products.
 
 gsap.registerPlugin(ScrollTrigger)
 
-gsap.from(".hero h1",{
-y:80,
-opacity:0,
-duration:1.2,
-ease:"power3.out"
-})
-
-gsap.from(".hero p",{
-y:40,
-opacity:0,
-delay:.2,
-duration:1
-})
+gsap.from(".hero h1",{y:60,opacity:0,duration:1})
+gsap.from(".hero p",{y:30,opacity:0,delay:.2,duration:1})
 
 gsap.utils.toArray(".service-card").forEach(card=>{
 
 gsap.from(card,{
-scrollTrigger:{
-trigger:card,
-start:"top 85%"
-},
-y:80,
+scrollTrigger:{trigger:card,start:"top 85%"},
+y:60,
 opacity:0,
-duration:1,
-ease:"power3.out"
+duration:0.8
 })
 
 })
