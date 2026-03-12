@@ -22,10 +22,59 @@ radial-gradient(circle at 20% 20%, rgba(99,102,241,.12), transparent),
 #F8FAFC;
 margin:0;
 color:#0F172A;
+}
+
+.container{
+width:92%;
+max-width:1100px;
+margin:auto;
+}
+
+header{
+position:sticky;
+top:0;
+background:rgba(255,255,255,.8);
+backdrop-filter:blur(18px);
+border-bottom:1px solid #E2E8F0;
+z-index:1000;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 0;
+}
+
+.logo{
+font-weight:800;
+letter-spacing:4px;
+text-decoration:none;
+color:inherit;
+}
+
+.nav-links{
+display:flex;
+gap:25px;
+margin-left:auto;
+}
+
+.nav-links a{
+font-size:14px;
+color:#64748B;
+text-decoration:none;
+}
+
+.nav-links a:hover{
+color:#0F172A;
+}
+
+.page-content{
+min-height:calc(100vh - 90px);
 display:flex;
 justify-content:center;
 align-items:center;
-min-height:100vh;
+padding:30px 0;
 }
 
 /* CARD */
@@ -99,6 +148,28 @@ text-align:center;
 display:none;
 }
 
+@media(max-width:768px){
+nav{
+flex-direction:row;
+align-items:center;
+gap:12px;
+}
+
+.nav-links{
+margin-left:auto;
+max-width:72%;
+overflow-x:auto;
+white-space:nowrap;
+gap:14px;
+padding-bottom:0;
+justify-content:flex-end;
+}
+
+.nav-links a{
+font-size:13px;
+}
+}
+
 </style>
 
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -110,6 +181,22 @@ emailjs.init("7H6amj8MZkwqkpdxf");
 </head>
 
 <body>
+
+<header>
+<div class="container">
+<nav>
+<a href="index.html" class="logo">SLIUBAR</a>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="work.html">Demos</a>
+<a href="index.html#contact">Contact</a>
+</div>
+</nav>
+</div>
+</header>
+
+<main class="page-content">
 
 <div class="card">
 
@@ -185,6 +272,8 @@ Submit
 </div>
 
 </div>
+
+</main>
 
 <script>
 
