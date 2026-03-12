@@ -91,11 +91,10 @@ nav{
   letter-spacing:4px;
 }
 
-/* ================= NAV ================= */
-
 .nav-links{
   display:flex;
   gap:25px;
+  margin-left:auto;
 }
 
 .nav-links a{
@@ -279,18 +278,26 @@ footer{
   section{
     padding:70px 0;
   }
-
   nav{
-    flex-direction:column;
-    align-items:flex-start;
+    flex-direction:row;
+    align-items:center;
     gap:12px;
   }
 
   .nav-links{
+    margin-left:auto;
+    max-width:72%;
     overflow-x:auto;
-    width:100%;
-    padding-bottom:4px;
+    white-space:nowrap;
+    gap:14px;
+    padding-bottom:0;
+    justify-content:flex-end;
   }
+
+  .nav-links a{
+    font-size:13px;
+  }
+
 
   .hero{
     padding-top:100px;
@@ -322,7 +329,7 @@ footer{
 <a href="index.html">Home</a>
 <a href="services.html">Services</a>
 <a href="work.html">Demos</a>
-<a href="#contact">Contact</a>
+<a href="index.html#contact">Contact</a>
 </div>
 
 </nav>
